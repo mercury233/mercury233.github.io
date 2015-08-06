@@ -71,6 +71,7 @@ app.directive("calcGeneral", function() {
                 calc.general.prop=newGeneral.prop;
                 calc.general.prop_step=newGeneral.step;
                 calc.general.type=newGeneral.type;
+                calc.general.grade=newGeneral.grade;
                 calc.general.fate=0;
                 calc.general.fates=newGeneral.fate;
             };
@@ -121,14 +122,16 @@ app.directive("calcGeneral", function() {
             calc.baseProp = function() {
                 var 神突破加成=[1, 1.1, 1.2, 1.3, 1.45, 1.65];
                 var 魔突破加成=[1, 1.125, 1.25, 1.4, 1.6, 2.01];
+                var grade=parseInt(calc.general.grade);
+                var star=parseInt(calc.general.star);
                 var base=0;
                 base = parseFloat(calc.general.prop);
                 base += (parseFloat(calc.general.prop_step)*(parseInt(calc.general.level)-1));
-                if (calc.general.grade==1) {
-                    base=base*神突破加成[parseInt(calc.general.star)];
+                if (grade==1) {
+                    base=base*神突破加成[star];
                 }
-                else {
-                    base=base*魔突破加成[parseInt(calc.general.star)];
+                else if (grade==5) {
+                    base=base*魔突破加成[star];
                 }
                 base += parseInt(calc.general.medicine);
                 base = Math.floor(base);
