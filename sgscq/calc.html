@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="calc">
+<head>
+<meta charset="UTF-8">
+<title>三国杀传奇计算器</title>
+<meta name="keywords" content="三国杀传奇,武将,属性,装备,数据,成长,缘分" />
+<meta name="description" content="直观的计算三国杀传奇武将属性、装备属性、技能伤害等。" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="renderer" content="webkit" />
+<link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+</head>
+<body ng-controller="calcController as calcController" class="calc">
+
+<header class="container">
+    <h1>三国杀传奇武将属性计算器
+        <div class="pull-right">
+            <a class="btn btn-default btn-sm" href="http://tieba.baidu.com/f?ie=utf-8&kw=%E4%B8%89%E5%9B%BD%E6%9D%80%E4%BC%A0%E5%A5%87" target="_blank">
+                <span class="glyphicon glyphicon-question-sign"></span> 使用说明
+            </a>
+            <button class="btn btn-default btn-sm" ng-click="calcController.addGeneral()">
+                <span class="glyphicon glyphicon-plus"></span> 新增武将
+            </button>
+        </div>
+    </h1>
+</header>
+<section class="container">
+    <calc-general></calc-general>
+</section>
+
+<footer>
+    <div class="container">
+        <hr>
+        <div class="row">
+            <div class="col-lg-12">
+                <!--a class="btn btn-default" href="./" role="button">返回首页</a-->
+                <a class="btn btn-default" href="http://tieba.baidu.com/home/main?un=%E6%B3%A2%E7%BD%97%E4%B8%81%E7%89%8C%E7%81%AD%E7%81%AB%E5%99%A8&ie=utf-8" target="_blank" role="button"  data-toggle="tooltip" data-html="true" data-container="body" title="<div class='text-left'>作者出没于贴吧，去贴吧与作者交♂流。</div>">作者：波罗丁牌灭火器</a>
+                <button class="btn btn-default" id="releasenotesbutton">查看版本更新说明</button>
+                <div id="releasenotes">
+                    <div class="text-left wide">
+                        <!--p>版本：7.27</p-->
+                        <p>更新记录：</p>
+                        <ul>
+                            <li>2015-08-06 首次发布
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!--[if lt IE 9]>
+<script>
+    alert("本页面不支持IE8及以下的浏览器，请换个浏览器吧。");
+</script>
+<![endif]-->
+
+<script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/angular.js/1.4.3/angular.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="data/generals.js"></script>
+<script src="js/calc.js"></script>
+<script src="http://s4.cnzz.com/z_stat.php?id=1255875151&web_id=1255875151"></script>
+</body>
+</html>
