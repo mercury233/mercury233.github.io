@@ -1,0 +1,168 @@
+/*========== 通用部分 ==========*/
+
+/*干掉站长统计的文本*/
+a[title="站长统计"] {
+	display: none;
+}
+/*字体*/
+.index, .nav, h1, h2 , h3, h4, h5, h6 {
+    font-family: 'Helvetica Neue', Helvetica, 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
+}
+
+/*页脚*/
+footer {
+    margin-left: 1em;
+    margin-right:1em;
+    margin-bottom:1em;
+}
+/*工具提示默认宽度过窄，不足以正常显示全部内容*/
+div.tooltip-inner {
+    max-width: 500px;
+}
+div.tooltip-inner .wide {
+    min-width: 250px;
+}
+div.tooltip-inner .short {
+    min-width: 100px;
+}
+/*升序排序时的倒三角*/
+.sorting-asc .caret {
+    content: "";
+    border-top: 0;
+    border-bottom: 4px dashed;
+    border-bottom: 4px solid\9;
+}
+/*自定义工具提示中的mark标签*/
+div.tooltip .my-mark mark {
+    border-radius: 4px;
+    line-height: 22px;
+    background-color: #FFF;
+}
+/*更新记录中嵌套的ul*/
+div.tooltip-inner li ul {
+    padding-left: 1em;
+}
+/*下拉菜单宽度优化*/
+.dropdown-menu {
+    min-width: 70px;
+}
+/*版本更新说明，由JS调用到tooltip里，故不显示*/
+div#releasenotes {
+    display: none;
+}
+
+/*========== 首页 ==========*/
+
+/*首页页头*/
+.index header {
+    height: 180px;
+    padding: 30px 0;
+    color: #FFFFFF;
+    text-align: center;
+    text-shadow: 0 2px 0 rgba(0,0,0,.1);
+    background-color: #233333;
+}
+/*短分割线*/
+.index .container hr {
+    margin-top: 30px;
+    width: 100px;
+}
+/*首页大链接*/
+.index div.bigicon {
+    text-align: center;
+    padding:10px;
+}
+/*首页大中图片自动适应宽度*/
+.index div.bigicon img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+}
+
+/*========== 武将 ==========*/
+
+/*灰色显示数据不完整武将*/
+#generals .gray {
+    color:#999;
+}
+/*“暂无”文字的美化*/
+#generals small {
+    display: inline-block;
+    margin-bottom: 0;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    padding: 2px 6px;
+    line-height: 1.5;
+}
+
+/*========== 技能 ==========*/
+
+/*技能表行高默认2行*/
+#skills :not(thead) tr {
+    height: 60px;
+}
+/*技能表每行垂直居中*/
+#skills th,#skills td {
+    min-width: 75px;
+    vertical-align: middle;
+}
+/*用于技能表中名称、缘分等*/
+#skills .shorttitle {
+    width: 75px;
+}
+/*用于技能表中触发、目标等*/
+#skills .middletitle {
+    width: 116px;
+}
+/*用于技能表中触发、目标等*/
+#skills .shorttext {
+    width:100px;
+    /*max-height:40px;*/
+}
+/*自定义技能文本中mark标签*/
+#skills mark {
+    border-radius: 4px;
+    background-color: #DDD;
+}
+
+/*========== 计算器 ==========*/
+
+/*计算器每行的行高*/
+.calc .calc-line {
+    line-height: 50px;
+}
+/*计算器控件组宽度统一*/
+.calc .input-group {
+    width:100%;
+}
+/*计算器label不加粗*/
+.calc label {
+    font-weight: normal;
+}
+/*攻血防智图标*/
+.calc .prop-icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url("../images/props.png") no-repeat;
+    background-size: 80px 19px;
+}
+.calc .prop-icon.p1 {
+    background-position: 0px 0px;
+}
+.calc .prop-icon.p2 {
+    background-position: -20px 0px;
+}
+.calc .prop-icon.p3 {
+    background-position: -40px 0px;
+}
+.calc .prop-icon.p4 {
+    background-position: -60px 0px;
+}
+/*计算器标题*/
+.calc header h1 {
+    font-size:22px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
