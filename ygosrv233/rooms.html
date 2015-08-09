@@ -40,18 +40,24 @@
 <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
 <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script>
-$("body").tooltip({selector: "[data-toggle='tooltip']"});
-
-$("button").click(function(){
-	window.load=window.setInterval(function(source){
-	//window.load=window.setTimeout(function(source){
-		var source=$("#source").val();
-		$.getScript(source);
-	},1000);
+$(function(){
+	$("body").tooltip({selector: "[data-toggle='tooltip']"});
+	$("button").click(startload);
+	var address=window.location.search.substr(1);
+	$("#source").val(address);
 });
 
-function loadroom(data){
-	//console.log(data.rooms.length);
+function startload() {
+	setInterval(function(){
+		var source=$("#source").val();
+		$.getScript(source);
+		$("button").removeClass("btn-success");
+	},1000);
+}
+
+function loadroom(data) {
+
+	$("button").addClass("btn-success");
 	$("#num").text(data.rooms.length);
 	var tbody=$("<tbody></tbody>");
 	for (i in data.rooms) {
@@ -68,11 +74,11 @@ function loadroom(data){
 				room.duelers.push(room.users[j]);
 			}
 		}
-		//console.log(room.watchers);
+
 		
 		tr.append($("<td>"+room.roomid+"</td>"));
 		tr.append($("<td>"+ ((room.needpass == "true") ? "<span class='glyphicon glyphicon-lock'></span>" : "") + room.roomname+ "</td>"));
-		//tr.append($("<td>"++"</td>"));
+
 		if (room.duelers.length<=2) {
 			tr.append($("<td>"+((room.duelers[0]) ? room.duelers[0].name : "")+"</td>"));
 			tr.append($("<td>"+((room.duelers[1]) ? room.duelers[1].name : "")+"</td>"));
@@ -98,7 +104,7 @@ function loadroom(data){
 	$("#rooms").append(tbody);
 }
 </script>
-<script src="http://s4.cnzz.com/z_stat.php?id=1255875151&web_id=1255875151"></script>
 
+<script src="http://s4.cnzz.com/z_stat.php?id=1255875151&web_id=1255875151"></script>
 </body>
 </html>
