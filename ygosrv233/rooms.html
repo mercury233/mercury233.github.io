@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>YgoSrv233 Rooms List</title>
+<link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+	
+</style>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<input type="text" class="form-control" id="source" value="" placeholder="God knows">
+			<button class="btn btn-default">打开</button>
+			共有<span id="num">0</span>个房间
+		</div>
+	</div>
+</div>
+<div class="container">
+	<hr>
+	<div class="row">
+		<div class="col-lg-12">
+			<table class="table table-striped" id="rooms">
+				<thead>
+					<th width="10%">房号</th>
+					<th width="30%">房名</th>
+					<th width="25%">玩家</th>
+					<th width="25%">玩家</th>
+					<th width="10%">状态</th>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script>
+$("body").tooltip({selector: "[data-toggle='tooltip']"});
+
+$("button").click(function(){
+	window.load=window.setInterval(function(source){
+	//window.load=window.setTimeout(function(source){
+		var source=$("#source").val();
+		$.getScript(source);
+	},1000);
+});
+
+function loadroom(data){
+	//console.log(data.rooms.length);
+	$("#num").text(data.rooms.length);
+	var tbody=$("<tbody></tbody>");
+	for (i in data.rooms) {
+		var room=data.rooms[i];
+		var tr=$("<tr></tr>");
+		
+		room.duelers=[];
+		room.watchers=[];
+		for (j in room.users) {
+			if (room.users[j].pos==7) {
+				room.watchers.push(room.users[j]);
+			}
+			else {
+				room.duelers.push(room.users[j]);
+			}
+		}
+		//console.log(room.watchers);
+		
+		tr.append($("<td>"+room.roomid+"</td>"));
+		tr.append($("<td>"+ ((room.needpass == "true") ? "<span class='glyphicon glyphicon-lock'></span>" : "") + room.roomname+ "</td>"));
+		//tr.append($("<td>"++"</td>"));
+		if (room.duelers.length<=2) {
+			tr.append($("<td>"+((room.duelers[0]) ? room.duelers[0].name : "")+"</td>"));
+			tr.append($("<td>"+((room.duelers[1]) ? room.duelers[1].name : "")+"</td>"));
+		}
+		else {
+			tr.append($("<td>"+((room.duelers[0]) ? room.duelers[0].name : "")+((room.duelers[2]) ? "<br>"+room.duelers[2].name : "")+"</td>"));
+			tr.append($("<td>"+((room.duelers[1]) ? room.duelers[1].name : "")+((room.duelers[3]) ? "<br>"+room.duelers[3].name : "")+"</td>"));
+		}
+		
+		var watchlist="";
+		
+		if (room.watchers.length) {
+			for (j in room.watchers) {
+				watchlist+=room.watchers[j].name+"\r\n";
+			}
+		}
+		
+		tr.append($("<td>"+ (watchlist ? "<span class='glyphicon glyphicon-eye-open' data-toggle='tooltip' title='" + watchlist + "'></span>" : "") + room.istart +"</td>"));
+		
+		tbody.append(tr);
+	}
+	$("#rooms tbody").remove();
+	$("#rooms").append(tbody);
+}
+</script>
+<script src="http://s4.cnzz.com/z_stat.php?id=1255875151&web_id=1255875151"></script>
+
+</body>
+</html>
