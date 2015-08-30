@@ -19,6 +19,7 @@ make config=release ygopro -j2
 cd ..
 ln -s bin/release/ygopro ./
 strip ygopro
+mkdir replay
 cd ..
 
 #ygopro lastest data
@@ -27,8 +28,10 @@ cd ..
 #yes | cp -rf mycard-$mycard_version/ygocore/* ygopro/
 #rm -rf mycard-$mycard_version mycard.7z
 
+#yes | cp -rf * /root/ygopro/
+
 #ygopro-server
-git clone https://github.com/mercury233/ygopro-server.git
+git clone https://github.com/mercury233/ygopro-server.git -b lite
 cd ygopro-server
 npm install
 sudo npm install -g coffee-script forever bunyan
