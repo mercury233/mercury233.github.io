@@ -1,0 +1,22 @@
+/*干掉站长统计的文本*/
+a[title="站长统计"] {
+    display: none;
+}
+
+/*标题*/
+h1.title {
+    font-family: 'Helvetica Neue', Helvetica, 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
+    font-size: 22px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.row.grid {
+    margin-bottom: 15px;
+}
+
+#shouttemp {
+    border: 0;
+    width: 300px;
+    height: 20px;
+}
