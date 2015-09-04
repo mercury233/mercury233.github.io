@@ -71,6 +71,7 @@ div#releasenotes {
 .index div.bigicon {
     text-align: center;
     padding:10px;
+    min-height: 320px;
 }
 /*首页大中图片自动适应宽度*/
 .index div.bigicon img {
@@ -165,4 +166,137 @@ div#releasenotes {
     font-size:22px;
     padding-bottom: 15px;
     border-bottom: 1px solid #eee;
+}
+/*大屏幕下日历切换使用动画*/
+@media (min-width: 1200px) {
+    #calendar-animcontainer {
+        position: relative;
+    }
+    #calendar-general {
+        transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        position: absolute;
+        top: 0;
+    }
+    #calendar-date {
+        transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        position: relative;
+        overflow: hidden;
+    }
+    #calendar-general {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transform: perspective(1200px) rotateY(0deg);
+        transform: perspective(1200px) rotateY(0deg);
+    }
+    #calendar-date {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transform: perspective(1200px) rotateY(180deg);
+        transform: perspective(1200px) rotateY(180deg);
+    }
+    .back #calendar-general {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transform: perspective(1200px) rotateY(180deg);
+        transform: perspective(1200px) rotateY(180deg);
+    }
+    .back #calendar-date {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transform: perspective(1200px) rotateY(360deg);
+        transform: perspective(1200px) rotateY(360deg);
+    }
+}
+/*小屏幕下日历切换不使用动画*/
+@media (max-width: 1199px) {
+    #calendar-general {
+        display: none;
+    }
+    #calendar-date {
+        display: block;
+    }
+    .back #calendar-general {
+        display: block;
+    }
+    .back #calendar-date {
+        display: none;
+    }
+}
+/*武将限时表*/
+#calendar-general-table {
+    font-family: Arial, Helvetica, sans-serif;
+    table-layout: fixed;
+}
+#calendar-general a {
+    display: block;
+    width: 60px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+}
+#calendar-general a:hover {
+    background-color: #F0F0F0;
+}
+#calendar-general tr {
+    border-bottom: 1px solid #EEEEEE;
+}
+#calendar-general th {
+    width: 80px;
+    border: none;
+}
+#calendar-general td {
+    font-size: 16px;
+    width: 80px;
+    border: none;
+    text-align: center;
+}
+/*武将限时日历*/
+#calendar-date ul.month {
+    display: block;
+    float:left;
+    padding: 0px;
+    height:280px;
+}
+#calendar-date ul.month li {
+    width: 13%;
+    height: 30px;
+    display: block;
+    float: left;
+    margin: 2px 0.6%;
+    font-size: 12px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 5px;
+    color: #999999;
+    background: #F0F0FF;
+}
+#calendar-date ul.month li a {
+    color: #000;
+    text-decoration: none;
+}
+#calendar-date ul.month li.space {
+    background: #FFFFFF;
+}
+#calendar-date ul.month li.week {
+    background: #F0F0F0;
+    color: #000;
+}
+#calendar-date ul.month li.month {
+    width:98.3%;
+    background: #F0F0F0;
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+}
+/*标签切换字体加粗，等级表用*/
+.nav.nav-tabs  {
+    font-weight: bold;
+}
+/*玩家等级表*/
+#player-levels {
+    width: 500px;
+}
+/*技能等级表*/
+#skill-levels {
+    width: 700px;
 }
