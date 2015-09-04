@@ -187,24 +187,28 @@ div#releasenotes {
         backface-visibility: hidden;
         -webkit-transform: perspective(1200px) rotateY(0deg);
         transform: perspective(1200px) rotateY(0deg);
+        opacity: 1;
     }
     #calendar-date {
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         -webkit-transform: perspective(1200px) rotateY(180deg);
         transform: perspective(1200px) rotateY(180deg);
+        opacity: 0;
     }
     .back #calendar-general {
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         -webkit-transform: perspective(1200px) rotateY(180deg);
         transform: perspective(1200px) rotateY(180deg);
+        opacity: 0;
     }
     .back #calendar-date {
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         -webkit-transform: perspective(1200px) rotateY(360deg);
         transform: perspective(1200px) rotateY(360deg);
+        opacity: 1;
     }
 }
 /*小屏幕下日历切换不使用动画*/
