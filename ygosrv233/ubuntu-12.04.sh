@@ -31,8 +31,13 @@ cd ..
 #yes | cp -rf * /root/ygopro/
 
 #ygopro-server
-git clone https://github.com/mercury233/ygopro-server.git -b lite
+git clone https://github.com/mercury233/ygopro-server.git -b lite ygopro-server-test
 cd ygopro-server
 npm install
-sudo npm install -g coffee-script forever bunyan
+sudo npm install -g pm2
 ln -s ../ygopro ygocore
+
+mv ygopro/ ygopro-2
+mv ygopro-1/ ygopro
+
+sudo ln -sf /usr/local/n/versions/node/0.12.7/bin/node /usr/bin/node

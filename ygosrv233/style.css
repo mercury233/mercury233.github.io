@@ -20,3 +20,15 @@ h1.title {
     width: 200px;
     height: 20px;
 }
+
+#pre_release_cards {
+    width: auto;
+    margin-left: 15px;
+    margin-right: 15px;
+    font-family: 宋体;
+}
+
+#pre_release_cards img {
+    width: 44px;
+    height: 63px;
+}
