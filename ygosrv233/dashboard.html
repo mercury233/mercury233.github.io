@@ -95,6 +95,7 @@ function loadrooms() {
 function autoload() {
     if (window.autoLoad) {
         window.clearInterval(window.autoLoad);
+        window.autoLoad=false;
     }
     else {
         window.autoLoad=window.setInterval(loadrooms,1000);
