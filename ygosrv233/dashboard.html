@@ -32,10 +32,10 @@
             <input type="text" class="form-control" id="shout" value="" placeholder="喊话">
         </div>
         <div class="col-lg-4">
-            <button class="btn btn-default" id="shout_button">喊话</button>
-            <button class="btn btn-default" id="stop_button">停服</button>
-            <button class="btn btn-default" id="welcome_button">欢迎</button>
-            <iframe id="shouttemp"></iframe>
+            <button class="btn btn-default" id="shout_button" data-toggle="tooltip" title="向全服所有房间喊话">喊话</button>
+            <button class="btn btn-default" id="stop_button" data-toggle="tooltip" title="停止新建房间，不影响现有的房间">停服</button>
+            <button class="btn btn-default" id="welcome_button" data-toggle="tooltip" title="更改欢迎信息">欢迎</button>
+            <span id="message_callback"></span>
         </div>
     </div>
 </div>
@@ -61,7 +61,7 @@
 <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script>
 $(function(){
-    $("body").tooltip({selector: "[data-toggle='tooltip']"});
+    $("body").tooltip({selector: "[data-toggle='tooltip']", trigger: "hover"});
     $("#open_button").click(loadrooms);
     $("#auto_button").click(autoload);
     $("#shout_button").click(shout);
@@ -87,8 +87,8 @@ function parseQueryString() {
 }
 
 function loadrooms() {
-    var source="http://" + $("#ip").val() + ":" + $("#port").val() + "/rooms.js";
-    $.getScript(source);
+    var url="http://" + $("#ip").val() + ":" + $("#port").val() + "/api/getrooms?callback=?"+ ($("#password").val() ? "&pass="+$("#password").val() : "");
+    $.getJSON(url, listroom);
     $("#open_button").removeClass("btn-success");
 }
 
@@ -96,14 +96,18 @@ function autoload() {
     if (window.autoLoad) {
         window.clearInterval(window.autoLoad);
         window.autoLoad=false;
+        $("#message_callback").text("关闭自动刷新");
     }
     else {
+        if (!$("#password").val()) {
+            alert("请输入密码");
+            return;
+        }
         window.autoLoad=window.setInterval(loadrooms,1000);
     }
-
 }
 
-function loadroom(data) {
+function listroom(data) {
 
     $("#open_button").addClass("btn-success");
     $("#num").text(data.rooms.length);
@@ -153,13 +157,21 @@ function loadroom(data) {
 }
 
 function shout() {
-    $("#shouttemp").attr("src","http://" + $("#ip").val() + ":" + $("#port").val() + "/shout?shout=" + $("#shout").val() + "&pass=" + $("#password").val());
+    $("#message_callback").text('...');
+    var url="http://" + $("#ip").val() + ":" + $("#port").val() + "/api/message?shout=" + $("#shout").val() + "&pass=" + $("#password").val() + "&callback=?";
+    $.getJSON(url, function(status,data){$("#message_callback").text(status);data && $("#shout").text(data);});
 }
 function stop() {
-    $("#shouttemp").attr("src","http://" + $("#ip").val() + ":" + $("#port").val() + "/stop?stop=" + $("#shout").val() + "&pass=" + $("#password").val());
+    if (confirm("确实要停服吗？")) {
+        $("#message_callback").text('...');
+        var url="http://" + $("#ip").val() + ":" + $("#port").val() + "/api/message?stop=" + $("#shout").val() + "&pass=" + $("#password").val() + "&callback=?";
+        $.getJSON(url, function(status,data){$("#message_callback").text(status);data && $("#shout").text(data);});
+    }
 }
 function welcome() {
-    $("#shouttemp").attr("src","http://" + $("#ip").val() + ":" + $("#port").val() + "/welcome?welcome=" + $("#shout").val() + "&pass=" + $("#password").val());
+    $("#message_callback").text('...');
+    var url="http://" + $("#ip").val() + ":" + $("#port").val() + "/api/message?welcome=" + $("#shout").val() + "&pass=" + $("#password").val() + "&callback=?";
+    $.getJSON(url, function(status,data){$("#message_callback").text(status);data && $("#shout").text(data);});
 }
 </script>
 
