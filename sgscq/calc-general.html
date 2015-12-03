@@ -3,38 +3,38 @@
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
             <div class="input-group">
                 <span class="input-group-addon">武将</span>
-                <select class="form-control" ng-model="calc.generalId" ng-change="calc.changeGeneral()">
-                    <option value="{{general.id}}" ng-repeat="general in calc.generals">{{general.name}}</option>
+                <select class="form-control" ng-model="calcGeneral.generalId" ng-change="calcGeneral.changeGeneral()">
+                    <option value="{{general.id}}" ng-repeat="general in calcGeneral.generals" ng-selected="$first">{{general.name}}</option>
                 </select>
-                <span class="input-group-addon">成长：{{calc.general.prop_step}}</span>
+                <span class="input-group-addon">成长：{{calcGeneral.general.prop_step}}</span>
             </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
             <div class="input-group">
                 <span class="input-group-addon">等级</span>
-                <input type="text" class="form-control" ng-model="calc.general.level">
+                <input type="number" min="1" max="480" class="form-control" ng-model="calcGeneral.general.level">
                 <span class="input-group-addon">级</span>
                 </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
             <div class="input-group">
                 <span class="input-group-addon">突破</span>
-                <input type="text" class="form-control" ng-model="calc.general.star">
+                <input type="number" min="0" max="5" class="form-control" ng-model="calcGeneral.general.star">
                 <span class="input-group-addon">星</span>
             </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
             <div class="input-group">
                 <span class="input-group-addon">修炼</span>
-                <input type="text" class="form-control" ng-model="calc.general.medicine">
-                <span class="input-group-addon"><span class="prop-icon p{{calc.general.type}}"></span></span>
+                <input type="number" min="0" max="99999" class="form-control noarrow" ng-model="calcGeneral.general.medicine">
+                <span class="input-group-addon"><span class="prop-icon p{{calcGeneral.general.type}}"></span></span>
             </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
             <div class="input-group">
                 <span class="input-group-addon">裸属性</span>
-                <input type="text" class="form-control" ng-value="calc.baseProp()" disabled>
-                <span class="input-group-addon"><span class="prop-icon p{{calc.general.type}}"></span></span>
+                <input type="number" class="form-control noarrow" ng-value="calcGeneral.baseProp()" disabled>
+                <span class="input-group-addon"><span class="prop-icon p{{calcGeneral.general.type}}"></span></span>
             </div>
         </div>
     </div>
@@ -42,13 +42,13 @@
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
             <div class="input-group">
                 <span class="input-group-addon">缘分</span>
-                <input type="text" class="form-control" ng-model="calc.general.fate">
+                <input type="number" min="0" max="999" class="form-control" ng-model="calcGeneral.general.fate">
                 <span class="input-group-addon">%</span>
             </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-8 col-lg-4">
-            <div class="btn-group" data-toggle="buttons" ng-click="calc.clickFate($event)">
-                <div class="btn btn-info" role="button" data-toggle="tooltip" data-container="body" data-effect="{{fate.effect}}" title="{{fate.desc}}" ng-repeat="fate in calc.general.fates">
+            <div class="btn-group" data-toggle="buttons" ng-click="calcGeneral.clickFate($event)">
+                <div class="btn btn-info" role="button" data-toggle="tooltip" data-container="body" data-effect="{{fate.effect}}" title="{{fate.desc}}" ng-repeat="fate in calcGeneral.general.fates">
                     {{fate.name}}
                 </div>
             </div>
@@ -58,18 +58,24 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
             <div class="input-group">
                 <span class="input-group-addon">被动</span>
-                <input type="text" class="form-control" ng-model="calc.general.skill">
+                <input type="number" min="0" max="999" class="form-control" ng-model="calcGeneral.general.skill">
                 <span class="input-group-addon">%</span>
             </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
             <div class="input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-arrow-left hidden-xs"></span><span class="glyphicon glyphicon-arrow-up visible-xs-inline-block"></span></span>
-                <select class="form-control" ng-model="calc.quickSkill" ng-change="calc.quick('skill',calc.quickSkill)">
-                    <option value="36.38">满级马术/天妒/看破</option>
-                    <option value="25.24">满级虎啸/无言</option>
+                <select class="form-control" ng-model="calcGeneral.quickSkill" ng-change="calcGeneral.quick('skill',calcGeneral.quickSkill)">
+                    <option value="41.08">满级武神/炎神/七星</option>
+                    <option value="36.38">满级马术/天妒/看破/集智/伤逝</option>
+                    <option value="35.94">满级完杀</option>
+                    <option value="32.31">满级象战</option>
                     <option value="31.33">满级恂恂</option>
+                    <option value="30.88">满级祸首</option>
+                    <option value="29.98">满级神戟</option>
                     <option value="28.88">满级克己</option>
+                    <option value="28.79">满级影兵</option>
+                    <option value="25.24">满级虎啸/无言</option>
                     <option value="0">自定义</option>
                 </select>
             </div>
@@ -77,14 +83,14 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
             <div class="input-group">
                 <span class="input-group-addon">副将</span>
-                <input type="text" class="form-control" ng-model="calc.general.reincarnate">
+                <input type="number" min="0" max="999" class="form-control" ng-model="calcGeneral.general.reincarnate">
                 <span class="input-group-addon">%</span>
             </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
             <div class="input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-arrow-left hidden-xs"></span><span class="glyphicon glyphicon-arrow-up visible-xs-inline-block"></span></span>
-                <select class="form-control" ng-model="calc.quickReincarnate" ng-change="calc.quick('reincarnate',calc.quickReincarnate)">
+                <select class="form-control" ng-model="calcGeneral.quickReincarnate" ng-change="calcGeneral.quick('reincarnate',calcGeneral.quickReincarnate)">
                     <option value="23.5">单4星神锋/仙策</option>
                     <option value="47">双4星神锋/仙策</option>
                     <option value="28.5">单5星神锋/仙策</option>
@@ -98,17 +104,18 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
             <div class="input-group">
                 <span class="input-group-addon">装备</span>
-                <input type="text" class="form-control" ng-model="calc.general.equip">
+                <input type="number" min="0" max="99999" class="form-control" ng-model="calcGeneral.general.equip">
             </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
             <div class="input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-arrow-left hidden-xs"></span><span class="glyphicon glyphicon-arrow-up visible-xs-inline-block"></span></span>
-                <select class="form-control" ng-model="calc.quickEquip" ng-change="calc.quick('equip',calc.equip())">
-                    <option value="172">{{ calc.general.level * 1.2 | number:0}}级9星172神装</option>
-                    <option value="150">{{ calc.general.level * 1.2 | number:0}}级8星150神装</option>
-                    <option value="135">{{ calc.general.level * 1.2 | number:0}}级7星135神装</option>
-                    <option value="195">{{ calc.general.level * 1.2 | number:0}}级9星195神装</option>
+                <select class="form-control" ng-model="calcGeneral.quickEquip" ng-change="calcGeneral.quick('equip',calcGeneral.equip())">
+                    <option value="172">{{ calcGeneral.general.level * 1.2 | number:0}}级9星172神装</option>
+                    <option value="168">{{ calcGeneral.general.level * 1.2 | number:0}}级9星168神装</option>
+                    <option value="150">{{ calcGeneral.general.level * 1.2 | number:0}}级8星150神装</option>
+                    <option value="135">{{ calcGeneral.general.level * 1.2 | number:0}}级7星135神装</option>
+                    <option value="195">{{ calcGeneral.general.level * 1.2 | number:0}}级9星195神装</option>
                     <option value="0">自定义</option>
                 </select>
             </div>
@@ -116,13 +123,13 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
             <div class="input-group">
                 <span class="input-group-addon">战技</span>
-                <input type="text" class="form-control" ng-model="calc.general.fight">
+                <input type="number" min="0" max="99999" class="form-control" ng-model="calcGeneral.general.fight">
             </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
             <div class="input-group">
-                <span class="input-group-addon">宝石</span>
-                <input type="text" class="form-control" ng-model="calc.general.gem">
+                <span class="input-group-addon">宝石+神兵</span>
+                <input type="number" min="0" max="999999" class="form-control" ng-model="calcGeneral.general.gem">
             </div>
         </div>
     </div>
@@ -130,8 +137,8 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
             <div class="input-group">
                 <span class="input-group-addon">最终属性</span>
-                <input type="text" class="form-control" ng-value="calc.prop()" disabled>
-                <span class="input-group-addon"><span class="prop-icon p{{calc.general.type}}"></span></span>
+                <input type="number" class="form-control noarrow" ng-value="calcGeneral.prop()" disabled>
+                <span class="input-group-addon"><span class="prop-icon p{{calcGeneral.general.type}}"></span></span>
             </div>
         </div>
     </div>

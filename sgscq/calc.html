@@ -28,6 +28,24 @@
     <calc-general></calc-general>
 </section>
 
+<hr>
+
+<header class="container">
+    <h1>三国杀传奇武将等级计算器
+        <div class="pull-right">
+            <a class="btn btn-default btn-sm" href="http://tieba.baidu.com/f?ie=utf-8&kw=%E4%B8%89%E5%9B%BD%E6%9D%80%E4%BC%A0%E5%A5%87" target="_blank" data-toggle="tooltip" data-placement="bottom" title="计算武将合体后的等级">
+                <span class="glyphicon glyphicon-question-sign"></span> 使用说明
+            </a>
+            <button class="btn btn-default btn-sm" ng-click="calcLevel.addGeneral()">
+                <span class="glyphicon glyphicon-plus"></span> 新增武将
+            </button>
+        </div>
+    </h1>
+</header>
+<section class="container">
+    <calc-level></calc-level>
+</section>
+
 <footer>
     <div class="container">
         <hr>
@@ -38,9 +56,10 @@
                 <button class="btn btn-default" id="releasenotesbutton">查看版本更新说明</button>
                 <div id="releasenotes">
                     <div class="text-left wide">
-                        <p>版本：11.27体验服</p>
+                        <p>版本：12.04</p>
                         <p>更新记录：</p>
                         <ul>
+                            <li>2015-12-04 增加武将等级计算器</li>
                             <li>2015-11-27 更新至体验服11月27日版本</li>
                             <li>2015-10-23 更新至体验服10月23日版本</li>
                             <li>2015-09-18 更新至体验服9月18日版本</li>
@@ -57,7 +76,7 @@
 
 <!--[if lt IE 9]>
 <script>
-    alert("本页面不支持IE8及以下的浏览器，请换个浏览器吧。");
+    alert("本页面不支持IE8及以下的IE浏览器，请换个浏览器吧。");
 </script>
 <![endif]-->
 
