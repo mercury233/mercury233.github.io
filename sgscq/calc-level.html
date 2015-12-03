@@ -1,0 +1,31 @@
+<form class="form-inline">
+    <div class="row calc-line">
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2" ng-repeat="general in calcLevel.generals">
+            <div class="input-group general-box">
+                <label class="input-group-addon">
+                    <span ng-show="$first">主<br><br>将</span>
+                    <input type="checkbox" ng-model="general.enabled" ng-show="!$first">
+                </label>
+                <select class="form-control" ng-model="general.id" ng-change="general.changeGeneral();">
+                    <option value="{{generalName.id}}" ng-repeat="generalName in calcLevel.generalNames" ng-selected="($index == general.id)">{{generalName.name}}</option>
+                </select>
+                <input type="number" min="1" max="480" class="form-control" ng-model="general.level" ng-change="general.changeLevel();">
+                <span class="input-group-addon">级</span>
+                </div>
+        </div>
+    </div>
+    <div class="row calc-line">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+            <span class="glyphicon glyphicon-arrow-down"></span>
+        </div>
+    </div>
+    <div class="row calc-line">
+        <div class="col-xs-8 col-sm-4 col-md-4 col-lg-3 center-block nofloat">
+            <div class="input-group">
+                <span class="input-group-addon">{{calcLevel.generals[0].name}}</span>
+                <input type="number" class="form-control noarrow" ng-value="calcLevel.resultLevel()" disabled>
+                <span class="input-group-addon">级</span>
+                </div>
+        </div>
+    </div>
+</form>
