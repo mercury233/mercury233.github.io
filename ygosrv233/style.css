@@ -21,6 +21,11 @@ h1.title {
     height: 20px;
 }
 
+#pre_update_log .auto-generated {
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
 #pre_release_cards {
     width: auto;
     margin-left: 15px;
