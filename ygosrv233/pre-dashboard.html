@@ -26,7 +26,7 @@
             <button class="btn btn-default" id="clear_button">清屏</button>
         </div>
     </div>
-    <div class="row buttons hidden">
+    <div class="row grid buttons hidden">
         <div class="col-lg-2">
             <button class="btn btn-default" action="fetch_datas">下载最新数据库</button>
         </div>
@@ -44,6 +44,12 @@
         </div>
         <div class="col-lg-2">
             <button class="btn btn-default" action="push_datas">上传到官网</button>
+        </div>
+    </div>
+    <div class="row buttons hidden">
+        <div class="col-lg-12">
+            <textarea class="form-control" rows="5" id="message" value="" placeholder="update message">新卡：
+修复：</textarea>
         </div>
     </div>
 </div>
@@ -118,7 +124,7 @@ function clear() {
 }
 
 function openapi(api) {
-    $.getJSON("http://"+ip+":"+port+"/api/"+ api +"?password="+password+"&callback=?", function(data) {
+    $.getJSON("http://"+ip+":"+port+"/api/"+ api +"?password="+password+"&message="+$("#message").val().replace(/\n/g,"！换行符！")+"&callback=?", function(data) {
         var data_li = $('<li>'+ data.message +'</li>');
         data_li.appendTo($("#output"));
     });
