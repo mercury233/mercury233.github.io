@@ -4,22 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Mercury233</title>
+    <title>网页中相对路径的一个坑 | Mercury233</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Mercury233">
     
 
     
-    <meta name="description" content="一个奇怪的地方">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mercury233">
-<meta property="og:url" content="http://mercury233.me/page/2/index.html">
+    <meta name="description" content="在写YGOPRO 233服的官网，用的是子文件夹，所以页面中所有链接用的都是相对路径。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网页中相对路径的一个坑">
+<meta property="og:url" content="http://mercury233.me/2016/03/13/网页中相对路径的一个坑/index.html">
 <meta property="og:site_name" content="Mercury233">
-<meta property="og:description" content="一个奇怪的地方">
+<meta property="og:description" content="在写YGOPRO 233服的官网，用的是子文件夹，所以页面中所有链接用的都是相对路径。">
+<meta property="og:updated_time" content="2016-03-13T15:53:44.046Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mercury233">
-<meta name="twitter:description" content="一个奇怪的地方">
+<meta name="twitter:title" content="网页中相对路径的一个坑">
+<meta name="twitter:description" content="在写YGOPRO 233服的官网，用的是子文件夹，所以页面中所有链接用的都是相对路径。">
 
     
     
@@ -64,306 +65,80 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/09/08/堕入深渊的灵魂：网页版DNF深渊模拟器/" title="堕入深渊的灵魂：网页版DNF深渊模拟器" itemprop="url">堕入深渊的灵魂：网页版DNF深渊模拟器</a>
+      <a href="/2016/03/13/网页中相对路径的一个坑/" title="网页中相对路径的一个坑" itemprop="url">网页中相对路径的一个坑</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Mercury233" target="_blank" itemprop="author">Mercury233</a>
 		
   <p class="article-time">
-    <time datetime="2014-09-08T07:22:00.000Z" itemprop="datePublished"> 发表于 2014-09-08</time>
+    <time datetime="2016-03-13T15:39:55.000Z" itemprop="datePublished"> 发表于 2016-03-13</time>
     
   </p>
 </header>
-    <div class="article-content">
-        
-        <p>练手向娱乐作品。<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2014/09/08/堕入深渊的灵魂：网页版DNF深渊模拟器/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/作品/">作品</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/原创Web-App/">原创Web App</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2013/08/31/为Windows7资源管理器添加快速切换显示隐藏文件菜单项/" title="为Windows7资源管理器添加快速切换显示隐藏文件菜单项（非右键菜单）" itemprop="url">为Windows7资源管理器添加快速切换显示隐藏文件菜单项（非右键菜单）</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Mercury233" target="_blank" itemprop="author">Mercury233</a>
+	<div class="article-content">
 		
-  <p class="article-time">
-    <time datetime="2013-08-30T16:00:00.000Z" itemprop="datePublished"> 发表于 2013-08-31</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>在文件夹选项里切换隐藏文件的显示太麻烦了，找了一下，发现可以修改注册表，在“组织”菜单里添加菜单项。<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2013/08/31/为Windows7资源管理器添加快速切换显示隐藏文件菜单项/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
+		<p>在写YGOPRO 233服的官网，用的是子文件夹，所以页面中所有链接用的都是相对路径。<br><a id="more"></a><br>正常情况下，访问的网址是 <a href="http://mercury233.me/ygosrv233/">http://mercury233.me/ygosrv233/</a> ，没有什么问题。</p>
+<p>但是如果用户手动输入网址时，漏掉了最后的斜杠，或者部分系统识别链接时没有包括最后的斜杠（比如手机QQ），就会出现所有链接失效的问题。</p>
+<p>因为浏览器看到的网址是 <a href="http://mercury233.me/ygosrv233">http://mercury233.me/ygosrv233</a> ，相当于 <a href="http://mercury233.me/ygosrv233.html">http://mercury233.me/ygosrv233.html</a> ，所以所有相对路径的参照都变成了上一级目录。</p>
+<p>解决方法是在HEAD里加<br><figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line">&lt;<span class="keyword">base </span>href=<span class="string">"http://mercury233.me/ygosrv233/"</span>&gt;</span><br></pre></td></tr></table></figure></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/技巧/">技巧</a>
+  <span></span> <a href="/tags/经验/">经验</a>
   </div>
 
 </div>
 
 
 
-
-<div class="comments-count">
+	<div class="article-share" id="share">
 	
-</div>
+	  <div data-url="http://mercury233.me/2016/03/13/网页中相对路径的一个坑/" data-title="网页中相对路径的一个坑 | Mercury233" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
 
 </footer>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2013/03/10/iDuel-YGOPRO卡组转换器-1-5/" title="iDuel YGOPRO卡组转换器 1.5" itemprop="url">iDuel YGOPRO卡组转换器 1.5</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Mercury233" target="_blank" itemprop="author">Mercury233</a>
-		
-  <p class="article-time">
-    <time datetime="2013-03-09T16:00:00.000Z" itemprop="datePublished"> 发表于 2013-03-10</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>本程序的功能是将iDuel或NBX的卡组与YGOPRO(YGOCore)的卡组互相转换。<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2013/03/10/iDuel-YGOPRO卡组转换器-1-5/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/作品/">作品</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/原创软件/">原创软件</a><a href="/tags/游戏王/">游戏王</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
+   	       
+	</article>
 	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/10/14/卡池生成器/"  title="卡池生成器">
+ <strong>下一篇：</strong><br/> 
+ <span>卡池生成器
+</span>
+</a>
 </div>
 
-</footer>
+</nav>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2012/11/20/一次恢复因蓝屏丢失的ACCESS-MDB数据库的经验/" title="一次恢复因蓝屏丢失的ACCESS .MDB数据库的经验" itemprop="url">一次恢复因蓝屏丢失的ACCESS .MDB数据库的经验</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Mercury233" target="_blank" itemprop="author">Mercury233</a>
-		
-  <p class="article-time">
-    <time datetime="2012-11-19T16:00:00.000Z" itemprop="datePublished"> 发表于 2012-11-20</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>刚才在编辑一个ACCESS格式的资料库，编辑完了，保存，关闭ACCESS，结果这时候突然蓝屏了</p>
-<p>重启电脑之后数据库文件还在，但打开提示“不可识别的数据库格式”</p>
-<p>用记事本打开，发现文件居然变成了完全空白！<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2012/11/20/一次恢复因蓝屏丢失的ACCESS-MDB数据库的经验/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/技巧/">技巧</a><a href="/tags/百度空间存档/">百度空间存档</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
 	
-</div>
-
-</footer>
-
-
-    </article>
+<section id="comments" class="comment">
+	<div id="uyan_frame"></div>
+	<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2088351"></script>
+</section>
 
 
 
 
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2009/12/13/让Music-Catch-2-Flash版加载本地音乐的方法/" title="让Music Catch 2 Flash版加载本地音乐的方法" itemprop="url">让Music Catch 2 Flash版加载本地音乐的方法</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Mercury233" target="_blank" itemprop="author">Mercury233</a>
-		
-  <p class="article-time">
-    <time datetime="2009-12-12T16:00:00.000Z" itemprop="datePublished"> 发表于 2009-12-13</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>今天<a href="http://www.acfun.tv/v/ac60221">在ACFUN上看到一款叫Music Catch的Flash游戏</a>，试玩后觉得很有意思，可继续看发现<a href="http://www.kongregate.com/games/reflexive/music-catch-2">Music Catch 2的Flash版</a>不支持加载本地音乐，只有第一代单机版支持。<br>Music Catch 2只支持加载URL上的音乐，但架设服务器后，用127.0.0.1或localhost之类的URL无效，网络上的URL就有效。<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2009/12/13/让Music-Catch-2-Flash版加载本地音乐的方法/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/原创软件/">原创软件</a><a href="/tags/技巧/">技巧</a><a href="/tags/游戏/">游戏</a><a href="/tags/百度空间存档/">百度空间存档</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-
-  <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
-  </nav>
-
-</div>
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
 <div id="asidepart">
@@ -540,6 +315,32 @@ $(document).ready(function(){
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
 
 
 
@@ -559,4 +360,4 @@ $(document).ready(function(){
 
 
   </body>
- </html>
+</html>
