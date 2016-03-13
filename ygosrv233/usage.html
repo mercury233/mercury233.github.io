@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>使用方法 - YGOPRO 233服</title>
+<meta name="keywords" content="游戏王,ygopro,ygocore,233,服务器,mycard,尸体" />
+<meta name="description" content="在YGOPRO游戏中，在主机信息处分别输入122.0.65.73和233，不输入主机密码，点击加入游戏，即可进入233服随机对战。" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./">YGOPRO 233服</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                <li><a href="./">首页</a></li>
+                <li><a href="download.html">下载</a></li>
+                <li class="active"><a href="usage.html">使用方法</a></li>
+                <li><a href="changelog.html">更新记录</a></li>
+                <li><a href="bugs.html">BUG报告</a></li>
+                <li><a href="javascript:alert('并没有开放');void(0);">云录像</a></li>
+                <li><a href="pre.html">先行卡</a></li>
+                </ul>
+                <p class="navbar-text navbar-right">主机信息(IP)：<kbd>122.0.65.73</kbd> <kbd>233</kbd></p>
+            </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="title">使用方法</h1>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <p>在YGOPRO游戏中，在主机信息处分别输入<kbd>122.0.65.73</kbd>和<kbd>233</kbd>，不输入主机密码，点击加入游戏，即可进入233服随机对战。</p>
+            <p>在主机密码处输入任意文字，可以以那个文字为房间名建立房间，让你的对手输入同样的文字，即可加入房间。</p>
+            <p>在房间名前加<kbd>M#</kbd>可以设置房间为比赛模式。加<kbd>T#</kbd>可以设置房间为2V2模式。</p>
+            <p>房间名还支持更多特殊代码，详情见下述说明。</p>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="title">房名代码</h1>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+                233服已更新，支持更简单的特殊代码
+            </p>
+            <p>
+                <strong>在密码处输入 <code>特殊代码#房间名</code> 即可，多个代码用逗号分开</strong>
+            </p>
+            <p>
+                因为并没有大厅房间列表，不会被人乱入，不需要$密码了
+            </p>
+            <div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                <p>
+                                    代码
+                                </p>
+                            </th>
+                            <th>
+                                <p>
+                                    说明
+                                </p>
+                            </th>
+                            <th>
+                                <p>
+                                    短代码
+                                </p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p lang="en-US">
+                                    MATCH
+                                </p>
+                            </td>
+                            <td>
+                                <p lang="en-US">
+                                    MATCH模式
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    M
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p lang="en-US">
+                                    TAG
+                                </p>
+                            </td>
+                            <td>
+                                <p lang="en-US">
+                                    TAG模式，默认16000血
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    T
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p lang="en-US">
+                                    TCG
+                                </p>
+                            </td>
+                            <td>
+                                <p lang="en-US">
+                                    同时允许TCG与OCG独有卡，默认使用OCG最新禁限卡表
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    OT
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    TCGONLY
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    纯TCG，不允许OCG独有卡，默认使用TCG最新禁限卡表
+                                </p>
+                            </td>
+                            <td>
+                                <p lang="en-US">
+                                    TO
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    LP4000
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    生命值4000（可改成1-99999的任意数值）
+                                </p>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    TIME5
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    每回合时间5分钟（可改成1-999的任意数值）
+                                </p>
+                            </td>
+                            <td>
+                                <p lang="en-US">
+                                    TM
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    START8
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    起手抽8张卡（可改成1-40的任意数值）
+                                </p>
+                            </td>
+                            <td>
+                                <p lang="en-US">
+                                    ST
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    DRAW2
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    每回合抽2张卡（可改成0-35的任意数值）
+                                </p>
+                            </td>
+                            <td>
+                                <p lang="en-US">
+                                    DR
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    LFLIST2
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    使用服务器上第2个禁限卡表（可改成服务器上的禁限卡表编号）
+                                </p>
+                            </td>
+                            <td>
+                                <p lang="en-US">
+                                    LF
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    NOLFLIST
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    不使用禁限卡表
+                                </p>
+                            </td>
+                            <td>
+                                <p lang="en-US">
+                                    NF
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    NOUNIQUE
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    不允许TCG与OCG独有卡
+                                </p>
+                            </td>
+                            <td>
+                                <p lang="en-US">
+                                    NU
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    NOCHECK
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    不检查卡组
+                                </p>
+                            </td>
+                            <td>
+                                <p lang="en-US">
+                                    NC
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    NOSHUFFLE
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    开局不洗卡组
+                                </p>
+                            </td>
+                            <td>
+                                <p lang="en-US">
+                                    NS
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    IGPRIORITY
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    允许启动效果优先权
+                                </p>
+                            </td>
+                            <td>
+                                <p lang="en-US">
+                                    PR
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                <strong>需要用什么功能就加什么代码，不需要的功能不用管</strong>
+            </p>
+            <p>
+                <strong>代码不区分大小写，顺序随意</strong>
+            </p>
+            <p>
+                <strong>房名加上代码最长20个字，如果字数不够，请使用短代码</strong>
+            </p>
+            <p>
+                示例：
+            </p>
+            <div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                <p>
+                                    代码
+                                </p>
+                            </th>
+                            <th>
+                                <p>
+                                    说明
+                                </p>
+                            </th>
+                            <th>
+                                <p>
+                                    备注
+                                </p>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p>
+                                    M#尼亚
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    建立一个MATCH房，无其他特殊设置
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    没错，还是熟悉的格式
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    T#尼亚萨比
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    建立一个双打房，生命值16000，无其他特殊设置
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    双打房不需要用代码手动设置生命值了
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    M,TIME10#说书狂魔
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    建立一个MATCH房，每回合10分钟
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    时间最长999秒，即16.65分钟
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    OT#次元融合
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    建立一个单局房，允许TCG与OCG的所有卡
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    但禁卡表还是OCG的
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    T,OT,LP36000#萨比尼亚
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    建立一个双打房，允许TCG与OCG的所有卡，生命值36000
+                                </p>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    M,OT,NOLFLIST#天空侠大战拿非利
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    建立一个MATCH房，允许TCG与OCG的所有卡，不使用禁卡表
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    为保证OCG方可以使用天空侠锁链龙等卡、TCG方可以使用鳞茎拿非利等卡，程序无法使用禁卡表，只能靠双方自觉遵守
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    TCGONLY#海外党
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    建立一个单局房，允许TCG独有卡，不允许OCG独有卡，使用TCG最新禁卡表
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    目前服务器上卡片TCG复刻状态可能有些过时，遇到问题请向管理反馈
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                <strong>注意：</strong>
+            </p>
+            <p>
+                仍然支持 <code>20FFF8000,5,1,房间名</code> 的特殊代码，并支持<s><a href="http://www.ygobbs.com/index.php?ctrl=server" target="_blank">联盟服务器的代码</s></a>
+            </p>
+            <p>
+                回合时间最长可设置为999秒，即16.65分钟，但服务器有60秒不动作视为挂机的设定，所以请不要思考时间过长，或思考时打字发送，表示你在线（双方都需要这么做）
+            </p>
+            <p>
+                禁限卡表列表可以到<a href="https://github.com/mercury233/ygopro/blob/server/lflist.conf" target="_blank">https://github.com/mercury233/ygopro/blob/server/lflist.conf</a>查看
+            </p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p>&copy; 2016 <a href="http://mercury233.me/" target="_blank">Mercury233</a> - Page hosted on <a href="https://github.com/mercury233/mercury233.github.io/tree/master/ygosrv233" target="_blank">GitHub</a> and <a href="https://coding.net/u/mercury233/p/mercury233/git" target="_blank">Coding</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="http://s4.cnzz.com/z_stat.php?id=1255875151&web_id=1255875151"></script>
+</body>
+</html>
