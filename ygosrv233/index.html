@@ -6,6 +6,7 @@
 <meta name="keywords" content="游戏王,ygopro,ygocore,233,服务器,mycard,尸体" />
 <meta name="description" content="YGOPRO 233服，一个游戏王YGOPRO的联机对战服务器，由尸体使用萌卡代码搭建。" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="http://mercury233.me/ygosrv233/">
 <link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -97,7 +98,10 @@
 <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script>
 $(function () {
-  $('[data-toggle="tooltip"]').tooltip().tooltip('show');
+    $('[data-toggle="tooltip"]').tooltip();
+    if ($(document).width()>768) {
+        $('[data-toggle="tooltip"]').tooltip('show');
+    }
 });
 </script>
 </body>
