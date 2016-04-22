@@ -1,2 +1,2 @@
 and it died..
-coding sucks again.
+coding也经常姨妈导致pages不能更新，这时我就会编辑这个文件重新commit来触发更新。
