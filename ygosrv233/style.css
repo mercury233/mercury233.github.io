@@ -43,3 +43,28 @@ footer {
     width: 44px;
     height: 63px;
 }
+
+#pre_faq p {
+    padding-left: 2em;
+    border-left: 3px #EEEEEE solid;
+    line-height: 200%;
+    text-indent: -1.5em;
+}
+
+#pre_faq p::first-letter {
+    font-weight: bold;
+    margin-right: 0.5em;
+}
+
+#pre_faq p.q {
+    background-color: #F0F0F0;
+    border-color: #CCCCCC;
+}
+
+#pre_faq p.a {
+    margin-bottom: 2em;
+}
+
+#pre_faq p:hover {
+    border-color: #AAAAAA;
+}
