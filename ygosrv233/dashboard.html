@@ -160,19 +160,33 @@ function listroom(data) {
 function shout() {
     $("#message_callback").text('...');
     var url="http://" + $("#ip").val() + ":" + $("#port").val() + "/api/message?shout=" + $("#shout").val() + "&pass=" + $("#password").val() + "&callback=?";
-    $.getJSON(url, function(status,data){$("#message_callback").text(status);data && $("#shout").text(data);});
+    $.getJSON(url, shoutcallback);
 }
 function stop() {
     if (confirm("确实要停服吗？")) {
         $("#message_callback").text('...');
         var url="http://" + $("#ip").val() + ":" + $("#port").val() + "/api/message?stop=" + $("#shout").val() + "&pass=" + $("#password").val() + "&callback=?";
-        $.getJSON(url, function(status,data){$("#message_callback").text(status);data && $("#shout").text(data);});
+        $.getJSON(url, shoutcallback);
     }
 }
 function welcome() {
-    $("#message_callback").text('...');
-    var url="http://" + $("#ip").val() + ":" + $("#port").val() + "/api/message?welcome=" + $("#shout").val() + "&pass=" + $("#password").val() + "&callback=?";
-    $.getJSON(url, function(status,data){$("#message_callback").text(status);data && $("#shout").text(data);});
+    if ($("#shout").val().length) {
+        $("#message_callback").text('...');
+        var url="http://" + $("#ip").val() + ":" + $("#port").val() + "/api/message?welcome=" + $("#shout").val() + "&pass=" + $("#password").val() + "&callback=?";
+        $.getJSON(url, shoutcallback);
+    }
+    else {
+        $("#message_callback").text('...');
+        var url="http://" + $("#ip").val() + ":" + $("#port").val() + "/api/message?getwelcome=1&pass=" + $("#password").val() + "&callback=?";
+        $.getJSON(url, shoutcallback);
+    }
+}
+
+function shoutcallback(data) {
+    $("#message_callback").text(data[0]);
+    if (data[1]) {
+        $("#shout").val(data[1]);
+    }
 }
 </script>
 
