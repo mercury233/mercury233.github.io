@@ -339,3 +339,47 @@ div#releasenotes {
 #skill-levels {
     width: 700px;
 }
+
+#buffs {
+    border-bottom: 1px solid #ddd;
+}
+/*神兵名竖排显示*/
+
+#buffs .conf-id {
+    vertical-align: middle;
+    background-color: #FFFFFF;
+    border: 1px solid #ddd;
+}
+#buffs .conf-name {
+    vertical-align: middle;
+    width: 16px;
+    background-color: #FFFFFF;
+    border: 1px solid #ddd;
+}
+
+/*自定义神兵效果中mark标签*/
+#buffs mark.vip {
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    background-color: #FFFFFF;
+    line-height: 30px;
+}
+#buffs .fate-box {
+    display: inline-block;
+    width: 60px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+#buffs .vip {
+    font-weight: bold;
+    color: #F2BE45;
+}
+#buffs .btn.vip:hover {
+    color: #000000;
+}
+#buffs .skill-box a {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
