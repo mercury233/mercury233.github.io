@@ -33,6 +33,77 @@ footer {
     height: 20px;
 }
 
+#decklist, #output.deck {
+    overflow-y: scroll;
+    height: 520px;
+}
+#decklist li {
+    border: 1px solid #EEEEEE;
+    border-radius: 5px;
+    padding: 2px 5px;
+    margin-bottom: 3px;
+    line-height: 22px;
+    cursor: pointer;
+}
+#decklist li:hover {
+    border: 1px solid #B8D6FB;
+    background-color: #EBF3FD;
+    background-image: linear-gradient(to bottom, #FAFBFD, #EBF3FD);
+}
+
+#showdeck {
+    width: 500px;
+    padding: 5px 0px;
+    background: #CCCCCC center center;
+}
+
+#showdeck label {
+    text-shadow: -1px -1px #000;
+    color: #FFF;
+    font-weight: normal;
+    border: 1px solid #FFF;
+    padding: 0px 5px;
+    margin: 1px 7px;
+}
+#showdeck label b {
+    margin: 0px 8px;
+    font-size: 16px;
+    line-height: 100%;
+}
+
+#showdeck div {
+    border: 1px solid #FFF;
+    padding: 2px;
+    margin: 0px 7px;
+}
+
+#showdeck img {
+    width: 46px;
+    height: 66px;
+    margin: 1px;
+    border: 1px solid transparent;
+}
+
+#showdeck .line11 img {
+    margin-right: -3.8px;
+}
+#showdeck .line12 img {
+    margin-right: -7.7px;
+}
+#showdeck .line13 img {
+    margin-right: -11px;
+}
+#showdeck .line14 img {
+    margin-right: -13.7px;
+}
+#showdeck .line15 img {
+    margin-right: -16.1px;
+}
+
+#showdeck img:hover {
+    border: 1px solid #FFF;
+}
+
 #pre_update_log .auto-generated {
     max-height: 300px;
     overflow-y: scroll;
