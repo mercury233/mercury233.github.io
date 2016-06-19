@@ -1,7 +1,7 @@
 {
   "download_base": "http://cdn233.my-card.in/",
-  "version": "2016060801",
+  "version": "2016061901",
   "ygo233_version": "0.03",
-  "date": "2016-06-08",
-  "txt": "YGOPRO 233服 自动更新测试中。\n\nYGO233客户端已更新至0.0.2版，请务必先下载。\n\n更新DP17新卡10张。\nYGOPRO增加删除卡组等新功能。\n优化部分卡图。\n\n自动更新遇到问题请联系尸体反馈。"
+  "date": "2016-06-19",
+  "txt": "YGOPRO 233服 自动更新测试中。\n\n更新SDMY+SDKS新卡18张。\nYGOPRO修复部分BUG。\n\n自动更新遇到问题请联系尸体反馈。"
 }
