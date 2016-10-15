@@ -188,7 +188,7 @@ apis["show_deck"].callback = function(deck) {
     var deck_main=$('<div></div>');
     deck_main.addClass("line"+Math.ceil(deck.main.length/4));
     for (var j in deck.main) {
-        deck_main.append("<img src='http://cdn233.my-card.in/ygopro/pics/thumbnail/"+deck.main[j]+".jpg'>");
+        deck_main.append("<img src='http://ygo233.my-card.in/ygopro/pics/thumbnail/"+deck.main[j]+".jpg'>");
     }
     deck_main.appendTo($("#showdeck"));
     
@@ -196,7 +196,7 @@ apis["show_deck"].callback = function(deck) {
     var deck_extra=$('<div></div>');
     deck_extra.addClass("line"+deck.extra.length);
     for (var j in deck.extra) {
-        deck_extra.append("<img src='http://cdn233.my-card.in/ygopro/pics/thumbnail/"+deck.extra[j]+".jpg'>");
+        deck_extra.append("<img src='http://ygo233.my-card.in/ygopro/pics/thumbnail/"+deck.extra[j]+".jpg'>");
     }
     deck_extra.appendTo($("#showdeck"));
     
@@ -204,7 +204,7 @@ apis["show_deck"].callback = function(deck) {
     var deck_side=$('<div></div>');
     deck_side.addClass("line"+deck.side.length);
     for (var j in deck.side) {
-        deck_side.append("<img src='http://cdn233.my-card.in/ygopro/pics/thumbnail/"+deck.side[j]+".jpg'>");
+        deck_side.append("<img src='http://ygo233.my-card.in/ygopro/pics/thumbnail/"+deck.side[j]+".jpg'>");
     }
     deck_side.appendTo($("#showdeck"));
     
