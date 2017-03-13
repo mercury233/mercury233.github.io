@@ -4,7 +4,8 @@ project "Irrlicht"
     includedirs { "include", "src", "src/jpeglib", "src/libpng", "src/zlib" }
     
     defines { "_IRR_STATIC_LIB_" }
-    flags { "NoExceptions", "NoRTTI" }
+    exceptionhandling "Off"
+    rtti "Off"
     
     files { "src/CCgMaterialRenderer.cpp",
             "src/CD3D9CgMaterialRenderer.cpp",
@@ -316,8 +317,7 @@ project "Irrlicht"
             "src/CGUIWindow.cpp" }
 
     configuration { "vs*" }
-        defines { "IRRLICHT_FAST_MATH", "UNICODE", "_UNICODE" }
-            includedirs { "$(DXSDK_DIR)include" }
+        includedirs { "$(DXSDK_DIR)include" }
         libdirs { "$(DXSDK_DIR)Lib/x86" }
 
     configuration { "windows" }
