@@ -2114,6 +2114,7 @@ footer {
   -webkit-border-radius: 0.35em;
   border-radius: 0.35em;
   word-wrap: break-word;
+  max-height: 32em;
 }
 @media only screen and (min-width: 568px) {
   .article-content pre,
