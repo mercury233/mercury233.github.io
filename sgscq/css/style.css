@@ -356,6 +356,10 @@ div#releasenotes {
     background-color: #FFFFFF;
     border: 1px solid #ddd;
 }
+#buffs .conf-head {
+    vertical-align: middle;
+    /*border: 1px solid #ddd;*/
+}
 
 /*自定义神兵效果中mark标签*/
 #buffs mark.vip {
@@ -383,3 +387,16 @@ div#releasenotes {
     margin-bottom: 10px;
 }
 
+#buffs .fate-switch {
+    top: 3px;
+}
+
+.popover.hd {
+    min-width: 800px;
+    min-height: 1158px;
+}
+
+img .hd {
+    width: 768px;
+    height: 1136px;
+}
