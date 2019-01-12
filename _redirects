@@ -1,3 +1,10 @@
 # Redirect default Netlify subdomain to primary domain
 https://mercury233.netlify.com/* https://mercury233.me/:splat 301!
 
+https://mercury233.me/ygosrv233/ https://ygo233.com/ 301!
+https://mercury233.me/ygosrv233/index.html* https://ygo233.com/:splat 301!
+https://mercury233.me/ygosrv233/bugs.html* https://ygo233.com/bugs:splat 301!
+https://mercury233.me/ygosrv233/changelog.html* https://ygo233.com/changelog:splat 301!
+https://mercury233.me/ygosrv233/download.html* https://ygo233.com/download:splat 301!
+https://mercury233.me/ygosrv233/pre.html* https://ygo233.com/pre:splat 301!
+https://mercury233.me/ygosrv233/usage.html* https://ygo233.com/usage:splat 301!
