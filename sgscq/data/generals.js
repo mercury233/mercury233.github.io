@@ -2095,6 +2095,78 @@ var generals_json = [{
     }]
 }, {
     "id": 111,
+    "name": "界·关羽",
+    "grade": "1",
+    "upgrade": "shangshen_exp",
+    "type": 1,
+    "prop": "225.00",
+    "step": "9.00",
+    "fate": [{
+        "desc": "同时上阵界·关羽,SP关索,关索,关平,暂无文本,攻+110%",
+        "name": "关家将",
+        "effect": "110"
+    }, {
+        "desc": "同时上阵界·关羽,暂无文本,暂无文本,攻+45%",
+        "name": "界限突破",
+        "effect": "45"
+    }, {
+        "desc": "装备锁龙偃月刀,攻+30%",
+        "name": "锁龙之能",
+        "effect": "30"
+    }]
+}, {
+    "id": 112,
+    "name": "圣诞貂蝉",
+    "grade": "1",
+    "upgrade": "shangshen_exp",
+    "type": 4,
+    "prop": "180.62",
+    "step": "7.29",
+    "fate": [{
+        "desc": "同时上阵圣诞司徒,智+25%",
+        "name": "圣诞同盟",
+        "effect": "25"
+    }, {
+        "desc": "同时上阵董卓,吕布,关羽,智+52%",
+        "name": "圣诞快乐",
+        "effect": "52"
+    }, {
+        "desc": "装备决斗,智+32%",
+        "name": "圣诞策略",
+        "effect": "32"
+    }]
+}, {
+    "id": 113,
+    "name": "财神关羽",
+    "grade": "1",
+    "upgrade": "shangshen_exp",
+    "type": 1,
+    "prop": "182.40",
+    "step": "7.56",
+    "fate": [{
+        "desc": "同时上阵财神关羽,暂无文本,暂无文本,暂无文本,暂无文本,攻+62%",
+        "name": "五福临门",
+        "effect": "62"
+    }, {
+        "desc": "同时上阵射手黄忠,攻+18%",
+        "name": "招财进宝",
+        "effect": "18"
+    }, {
+        "desc": "装备青龙偃月刀,攻+25%",
+        "name": "武财神",
+        "effect": "25"
+    }]
+}, {
+    "id": 114,
+    "name": "颜良文丑",
+    "grade": "1",
+    "upgrade": "shangshen_exp",
+    "type": 4,
+    "prop": "115.00",
+    "step": "5.80",
+    "fate": []
+}, {
+    "id": 115,
     "name": "兵长陆逊",
     "grade": "1",
     "upgrade": "shangshen_exp",
@@ -2111,7 +2183,7 @@ var generals_json = [{
         "effect": "21"
     }]
 }, {
-    "id": 112,
+    "id": 116,
     "name": "跑男夏侯渊",
     "grade": "1",
     "upgrade": "shangshen_exp",
@@ -2128,7 +2200,7 @@ var generals_json = [{
         "effect": "25"
     }]
 }, {
-    "id": 113,
+    "id": 117,
     "name": "学妹小乔",
     "grade": "1",
     "upgrade": "shangshen_exp",
@@ -2145,7 +2217,7 @@ var generals_json = [{
         "effect": "45"
     }]
 }, {
-    "id": 114,
+    "id": 118,
     "name": "冰雪春华",
     "grade": "1",
     "upgrade": "shangshen_exp",
@@ -2162,7 +2234,7 @@ var generals_json = [{
         "effect": "30"
     }]
 }, {
-    "id": 115,
+    "id": 119,
     "name": "射手黄忠",
     "grade": "1",
     "upgrade": "shangshen_exp",
@@ -2179,7 +2251,7 @@ var generals_json = [{
         "effect": "45"
     }]
 }, {
-    "id": 116,
+    "id": 120,
     "name": "夜夜星彩",
     "grade": "1",
     "upgrade": "shangshen_exp",
@@ -2196,7 +2268,7 @@ var generals_json = [{
         "effect": "23"
     }]
 }, {
-    "id": 117,
+    "id": 121,
     "name": "公主宪英",
     "grade": "1",
     "upgrade": "shangshen_exp",
@@ -2213,7 +2285,7 @@ var generals_json = [{
         "effect": "21"
     }]
 }, {
-    "id": 118,
+    "id": 122,
     "name": "软妹袁姬",
     "grade": "1",
     "upgrade": "shangshen_exp",
@@ -2230,7 +2302,7 @@ var generals_json = [{
         "effect": "21"
     }]
 }, {
-    "id": 119,
+    "id": 123,
     "name": "天使尚香",
     "grade": "1",
     "upgrade": "shangshen_exp",
@@ -2247,7 +2319,7 @@ var generals_json = [{
         "effect": "22"
     }]
 }, {
-    "id": 120,
+    "id": 124,
     "name": "采樵夏侯氏",
     "grade": "1",
     "upgrade": "shangshen_exp",
@@ -2264,7 +2336,7 @@ var generals_json = [{
         "effect": "24"
     }]
 }, {
-    "id": 121,
+    "id": 125,
     "name": "英雄王关羽",
     "grade": "1",
     "upgrade": "shangshen_exp",
@@ -2305,7 +2377,7 @@ var generals_json = [{
         "effect": 15
     }]
 }, {
-    "id": 122,
+    "id": 126,
     "name": "芽间月英",
     "grade": "1",
     "upgrade": "shangshen_exp",
@@ -2326,7 +2398,7 @@ var generals_json = [{
         "effect": "45"
     }]
 }, {
-    "id": 123,
+    "id": 127,
     "name": "德古拉魏延",
     "grade": "1",
     "upgrade": "shangshen_exp",
@@ -2347,7 +2419,7 @@ var generals_json = [{
         "effect": "40"
     }]
 }, {
-    "id": 124,
+    "id": 128,
     "name": "大圣孙坚",
     "grade": "1",
     "upgrade": "shangshen_exp",
@@ -2368,7 +2440,7 @@ var generals_json = [{
         "effect": "42"
     }]
 }, {
-    "id": 125,
+    "id": 129,
     "name": "枪骑凌统",
     "grade": "1",
     "upgrade": "shangshen_exp",
@@ -2385,7 +2457,7 @@ var generals_json = [{
         "effect": "40"
     }]
 }, {
-    "id": 126,
+    "id": 130,
     "name": "八尺琼曹丕",
     "grade": "1",
     "upgrade": "shangshen_exp",
@@ -2402,7 +2474,7 @@ var generals_json = [{
         "effect": "25"
     }]
 }, {
-    "id": 127,
+    "id": 131,
     "name": "魔·张飞",
     "grade": "5",
     "upgrade": "shangshen_exp",
@@ -2419,7 +2491,7 @@ var generals_json = [{
         "effect": "45"
     }]
 }, {
-    "id": 128,
+    "id": 132,
     "name": "魔·貂蝉",
     "grade": "5",
     "upgrade": "shangshen_exp",
@@ -2436,7 +2508,7 @@ var generals_json = [{
         "effect": "45"
     }]
 }, {
-    "id": 129,
+    "id": 133,
     "name": "魔·马超",
     "grade": "5",
     "upgrade": "shangshen_exp",
@@ -2453,7 +2525,7 @@ var generals_json = [{
         "effect": "45"
     }]
 }, {
-    "id": 130,
+    "id": 134,
     "name": "魔·凌统",
     "grade": "5",
     "upgrade": "shangshen_exp",
@@ -2470,7 +2542,7 @@ var generals_json = [{
         "effect": "36"
     }]
 }, {
-    "id": 131,
+    "id": 135,
     "name": "魔·董卓",
     "grade": "5",
     "upgrade": "shangshen_exp",
@@ -2483,7 +2555,7 @@ var generals_json = [{
         "effect": 15
     }]
 }, {
-    "id": 132,
+    "id": 136,
     "name": "魔·贾诩",
     "grade": "5",
     "upgrade": "shangshen_exp",
@@ -2500,7 +2572,7 @@ var generals_json = [{
         "effect": "46"
     }]
 }, {
-    "id": 133,
+    "id": 137,
     "name": "魔·黄盖",
     "grade": "5",
     "upgrade": "shangshen_exp",
@@ -2517,7 +2589,7 @@ var generals_json = [{
         "effect": "35"
     }]
 }, {
-    "id": 134,
+    "id": 138,
     "name": "魔·张角",
     "grade": "5",
     "upgrade": "shangshen_exp",
