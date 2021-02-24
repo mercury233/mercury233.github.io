@@ -94,8 +94,8 @@ a img {
   font-family: "covered_by_your_graceregular";
   font-weight: normal;
   font-style: normal;
-  src: url("font/coveredbyyourgrace-webfont.eot");
-  src: url("font/coveredbyyourgrace-webfont.eot?#iefix") format('embedded-opentype'), url("font/coveredbyyourgrace-webfont.svg#covered_by_your_graceregular") format('svg'), url("font/coveredbyyourgrace-webfont.woff") format('woff'), url("font/coveredbyyourgrace-webfont.ttf") format('truetype');
+  src: url("https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/fonts/coveredbyyourgrace-webfont.eot");
+  src: url("https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/fonts/coveredbyyourgrace-webfont.eot?#iefix") format('embedded-opentype'), url("https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/fonts/coveredbyyourgrace-webfont.svg#covered_by_your_graceregular") format('svg'), url("https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/fonts/coveredbyyourgrace-webfont.woff") format('woff'), url("https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/fonts/coveredbyyourgrace-webfont.ttf") format('truetype');
 }
 /* icon Font */
 @font-face {
@@ -109,8 +109,8 @@ a img {
   font-family: "fontdiao";
   font-weight: normal;
   font-style: normal;
-  src: url("font/fontdiao.eot");
-  src: url("font/fontdiao.eot?#iefix") format('embedded-opentype'), url("font/fontdiao.svg#fontdiao") format('svg'), url("font/fontdiao.woff") format('woff'), url("font/fontdiao.ttf") format('truetype');
+  src: url("https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/fonts/fontdiao.eot");
+  src: url("https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/fonts/fontdiao.eot?#iefix") format('embedded-opentype'), url("https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/fonts/fontdiao.svg#fontdiao") format('svg'), url("https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/fonts/fontdiao.woff") format('woff'), url("https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/fonts/fontdiao.ttf") format('truetype');
 }
 /* Public style */
 * {
