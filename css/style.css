@@ -1935,8 +1935,6 @@ footer {
   height: 6.875em;
   margin: 0 auto;
   background: no-repeat url("../") left top;
-  -webkit-background-size: 6.875em 6.875em;
-  -moz-background-size: 6.875em 6.875em;
   background-size: 6.875em 6.875em;
   border-radius: 3.4375em;
   -webkit-transition: -webkit-transform 2s ease-out;

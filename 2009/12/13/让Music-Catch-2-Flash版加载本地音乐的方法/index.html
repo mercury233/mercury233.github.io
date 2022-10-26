@@ -1,7 +1,7 @@
 
  <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="UTF-8">
   
     <title>让Music Catch 2 Flash版加载本地音乐的方法 | Mercury233</title>
@@ -12,27 +12,32 @@
 
     
     <meta name="description" content="今天在ACFUN上看到一款叫Music Catch的Flash游戏，试玩后觉得很有意思，可继续看发现Music Catch 2的Flash版不支持加载本地音乐，只有第一代单机版支持。Music Catch 2只支持加载URL上的音乐，但架设服务器后，用127.0.0.1或localhost之类的URL无效，网络上的URL就有效。">
-<meta name="keywords" content="百度空间存档,技巧,原创软件,游戏">
 <meta property="og:type" content="article">
 <meta property="og:title" content="让Music Catch 2 Flash版加载本地音乐的方法">
-<meta property="og:url" content="https://mercury233.me/2009/12/13/让Music-Catch-2-Flash版加载本地音乐的方法/index.html">
+<meta property="og:url" content="https://mercury233.me/2009/12/13/%E8%AE%A9Music-Catch-2-Flash%E7%89%88%E5%8A%A0%E8%BD%BD%E6%9C%AC%E5%9C%B0%E9%9F%B3%E4%B9%90%E7%9A%84%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="Mercury233">
 <meta property="og:description" content="今天在ACFUN上看到一款叫Music Catch的Flash游戏，试玩后觉得很有意思，可继续看发现Music Catch 2的Flash版不支持加载本地音乐，只有第一代单机版支持。Music Catch 2只支持加载URL上的音乐，但架设服务器后，用127.0.0.1或localhost之类的URL无效，网络上的URL就有效。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://mercury233.me/2009/12/13/让Music-Catch-2-Flash版加载本地音乐的方法/1.jpg">
-<meta property="og:image" content="https://mercury233.me/2009/12/13/让Music-Catch-2-Flash版加载本地音乐的方法/2.jpg">
-<meta property="og:updated_time" content="2015-09-16T17:44:31.019Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mercury233.me/2009/12/13/%E8%AE%A9Music-Catch-2-Flash%E7%89%88%E5%8A%A0%E8%BD%BD%E6%9C%AC%E5%9C%B0%E9%9F%B3%E4%B9%90%E7%9A%84%E6%96%B9%E6%B3%95/1.jpg">
+<meta property="og:image" content="https://mercury233.me/2009/12/13/%E8%AE%A9Music-Catch-2-Flash%E7%89%88%E5%8A%A0%E8%BD%BD%E6%9C%AC%E5%9C%B0%E9%9F%B3%E4%B9%90%E7%9A%84%E6%96%B9%E6%B3%95/2.jpg">
+<meta property="article:published_time" content="2009-12-12T16:00:00.000Z">
+<meta property="article:modified_time" content="2015-09-16T17:44:31.019Z">
+<meta property="article:author" content="Mercury233">
+<meta property="article:tag" content="原创软件">
+<meta property="article:tag" content="百度空间存档">
+<meta property="article:tag" content="技巧">
+<meta property="article:tag" content="游戏">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="让Music Catch 2 Flash版加载本地音乐的方法">
-<meta name="twitter:description" content="今天在ACFUN上看到一款叫Music Catch的Flash游戏，试玩后觉得很有意思，可继续看发现Music Catch 2的Flash版不支持加载本地音乐，只有第一代单机版支持。Music Catch 2只支持加载URL上的音乐，但架设服务器后，用127.0.0.1或localhost之类的URL无效，网络上的URL就有效。">
-<meta name="twitter:image" content="https://mercury233.me/2009/12/13/让Music-Catch-2-Flash版加载本地音乐的方法/1.jpg">
+<meta name="twitter:image" content="https://mercury233.me/2009/12/13/%E8%AE%A9Music-Catch-2-Flash%E7%89%88%E5%8A%A0%E8%BD%BD%E6%9C%AC%E5%9C%B0%E9%9F%B3%E4%B9%90%E7%9A%84%E6%96%B9%E6%B3%95/1.jpg">
 
     
     
     
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-</html>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
   <body>
     <header>
       
@@ -46,31 +51,30 @@
 			</a></div>
 			<nav class="animated">
 				<ul>
-					<ul>
-					 
-						<li><a href="/">Home</a></li>
 					
-						<li><a href="/archives">Archives</a></li>
+					<li><a href="/">Home</a></li>
 					
-						<li><a href="/categories/%E4%BD%9C%E5%93%81/">Works</a></li>
+					<li><a href="/archives">Archives</a></li>
 					
-						<li><a href="/about">About</a></li>
+					<li><a href="/categories/%E4%BD%9C%E5%93%81/">Works</a></li>
+					
+					<li><a href="/about">About</a></li>
 					
 					<li>
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索">
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:mercury233.me">
 					</form>
 					
 					</li>
 				</ul>
-			</ul></nav>			
+			</nav>			
 </div>
     </header>
     <div id="container">
-      <div id="main" class="post" itemscope="" itemprop="blogPost">
+      <div id="main" class="post" itemscope itemprop="blogPost">
   
 	<article itemprop="articleBody"> 
 		<header class="article-info clearfix">
@@ -89,22 +93,25 @@
 </header>
 	<div class="article-content">
 		
-		<p>今天<a href="http://www.acfun.tv/v/ac60221" target="_blank" rel="noopener">在ACFUN上看到一款叫Music Catch的Flash游戏</a>，试玩后觉得很有意思，可继续看发现<a href="http://www.kongregate.com/games/reflexive/music-catch-2" target="_blank" rel="noopener">Music Catch 2的Flash版</a>不支持加载本地音乐，只有第一代单机版支持。<br>Music Catch 2只支持加载URL上的音乐，但架设服务器后，用127.0.0.1或localhost之类的URL无效，网络上的URL就有效。<br><a id="more"></a><br>检查发现这个游戏加载文件不是直接加载，而是通过 <a href="http://wgextras.gamecentersolution.com/proxy.php" target="_blank" rel="noopener">http://wgextras.gamecentersolution.com/proxy.php</a> 这个网址来中转加载。所以用127.0.0.1之类只有本地能访问的地址会无效。</p>
+		<p>今天<a target="_blank" rel="noopener" href="http://www.acfun.tv/v/ac60221">在ACFUN上看到一款叫Music Catch的Flash游戏</a>，试玩后觉得很有意思，可继续看发现<a target="_blank" rel="noopener" href="http://www.kongregate.com/games/reflexive/music-catch-2">Music Catch 2的Flash版</a>不支持加载本地音乐，只有第一代单机版支持。<br>Music Catch 2只支持加载URL上的音乐，但架设服务器后，用127.0.0.1或localhost之类的URL无效，网络上的URL就有效。</p>
+<span id="more"></span>
+<p>检查发现这个游戏加载文件不是直接加载，而是通过 <a target="_blank" rel="noopener" href="http://wgextras.gamecentersolution.com/proxy.php">http://wgextras.gamecentersolution.com/proxy.php</a> 这个网址来中转加载。所以用127.0.0.1之类只有本地能访问的地址会无效。</p>
 <p>因此，只要使用gamecentersolution.com能获取的地址，就是公网IP，就可以成功加载。<br>使用这个方法的前提是你有公网的IP（单机拨号上网等），内网用户不行（网吧，寝室共享局域网之类）（你可以在路由里设置的话当我没说）。</p>
 <p>具体方法如下：<br>首先建立一个服务器。推荐使用Http File Server（以下简称HFS）或Baby Web Server（以下简称BABYWEB），Apache什么的专业服务器也行。这里介绍BABYWEB。<br>BABYWEB是一个简易的HTTP服务器，绿色免费软件，功能对于单机测试静态网站已经足够。<br>下载后解压，打开babyweb.exe，第一次使用会弹出一个提示框，分别选第二个按钮和 I Agree。<br>在设置里设置网站目录为你存放MP3的文件夹，如图所示。</p>
-<p><img src="1.jpg" alt="Babyweb设置"></p>
-<p>然后，打开<a href="http://www.ip138.com/" target="_blank" rel="noopener">ip138</a>之类的网站，查看你的IP，记下来。另外一般的宽带上网每次拨号，IP都会变化。<br>然后，打开浏览器测试一下，输入 <code>http://你的IP/你的MP3文件名.MP3</code> ，能够打开或者弹出下载就表示服务器建立成功了。<br>（你可以用这个跟局域网里的朋友高速共享文件（一般5M/S以上），但对于文件共享推荐使用HFS，这里就不详细介绍了。）<br>然后，就可以在游戏里输入刚才的网址，慢慢缓冲开始游戏了……</p>
+<p><img src="/2009/12/13/%E8%AE%A9Music-Catch-2-Flash%E7%89%88%E5%8A%A0%E8%BD%BD%E6%9C%AC%E5%9C%B0%E9%9F%B3%E4%B9%90%E7%9A%84%E6%96%B9%E6%B3%95/1.jpg" alt="Babyweb设置"></p>
+<p>然后，打开<a target="_blank" rel="noopener" href="http://www.ip138.com/">ip138</a>之类的网站，查看你的IP，记下来。另外一般的宽带上网每次拨号，IP都会变化。<br>然后，打开浏览器测试一下，输入 <code>http://你的IP/你的MP3文件名.MP3</code> ，能够打开或者弹出下载就表示服务器建立成功了。<br>（你可以用这个跟局域网里的朋友高速共享文件（一般5M&#x2F;S以上），但对于文件共享推荐使用HFS，这里就不详细介绍了。）<br>然后，就可以在游戏里输入刚才的网址，慢慢缓冲开始游戏了……</p>
 <p>这个方法有许多不足，一是不支持内网，二是不支持离线使用，三是缓冲速度相对较慢……本地音乐难道要在网上兜一圈才能被游戏读取么……</p>
-<p>于是继续思考，发现 <a href="http://wgextras.gamecentersolution.com/proxy.php" target="_blank" rel="noopener">http://wgextras.gamecentersolution.com/proxy.php</a> 返回的文件和上传的文件完全一样。也就是说，只要使游戏读取的网址实际是本地音乐文件就可以了。也就是说，将音乐文件名改为proxy.php，通过hosts将wgextras.gamecentersolution.com解析至127.0.0.1，就能实现真正的本地读取了……</p>
+<p>于是继续思考，发现 <a target="_blank" rel="noopener" href="http://wgextras.gamecentersolution.com/proxy.php">http://wgextras.gamecentersolution.com/proxy.php</a> 返回的文件和上传的文件完全一样。也就是说，只要使游戏读取的网址实际是本地音乐文件就可以了。也就是说，将音乐文件名改为proxy.php，通过hosts将wgextras.gamecentersolution.com解析至127.0.0.1，就能实现真正的本地读取了……</p>
 <p>具体方法如下：<br>首先按上面的方法建立服务器，这里不能使用HFS，因为测试时发现它不能正确处理游戏的请求。（竟然是POST方法，我囧）<br>然后打开 WINDOWS\system32\drivers\etc 文件夹，去掉Hosts这个文件的只读属性（如果有的话），用记事本打开它，在里面加上</p>
 <pre><code>127.0.0.1 wgextras.gamecentersolution.com
-</code></pre><p>然后保存文件。重启电脑或刷新DNS缓存之后访问 wgextras.gamecentersolution.com 就会转到 127.0.0.1 这个本地地址。</p>
-<p><img src="2.jpg" alt="hosts设置"></p>
+</code></pre>
+<p>然后保存文件。重启电脑或刷新DNS缓存之后访问 wgextras.gamecentersolution.com 就会转到 127.0.0.1 这个本地地址。</p>
+<p><img src="/2009/12/13/%E8%AE%A9Music-Catch-2-Flash%E7%89%88%E5%8A%A0%E8%BD%BD%E6%9C%AC%E5%9C%B0%E9%9F%B3%E4%B9%90%E7%9A%84%E6%96%B9%E6%B3%95/2.jpg" alt="hosts设置"></p>
 <p>（表面上看不出，ping一下便知）<br>（这个方法也可以实现屏蔽网站，具体方法跟这个一样）<br>（这个方法还可以被病毒木马利用，比如在打开QQ空间时弹出虚假中奖信息。看起来网页确实是QQ的域名，可实际访问的是黑客的服务器。防御方法是保证不中毒，无视夸张的中奖信息……）<br>开启BABYWEB，将要播放的音乐复制到网站文件夹，文件名改成 proxy.php （连扩展名一起改）。另外复制一个 crossdomain.xml 到网站文件夹，因为测试时发现游戏还会读取这个文件。<br>这样在游戏里输入任意地址即可直接进入游戏，无需从网上下载，但因为BABYWEB会有点卡，需要等几秒。</p>
 <p>另外，我写了个AHK脚本，可以直接启动并设置BABYWEB，并选择文件复制到BABYWEB目录……使用时修改好hosts文件之后直接打开此程序即可。注意：这个脚本退出时会自动关闭BABYWEB。</p>
-<p><a href="http://cid-47bcc0c751da433a.skydrive.live.com/self.aspx/.Public/Soft/Music%20Catch.rar" target="_blank" rel="noopener">下载</a></p>
+<p><a target="_blank" rel="noopener" href="http://cid-47bcc0c751da433a.skydrive.live.com/self.aspx/.Public/Soft/Music%20Catch.rar">下载</a></p>
 <p>↑内含脚本，BABYWEB，游戏</p>
-<p>附<a href="http://www.chafanhou.com/?q=music-catch-2" target="_blank" rel="noopener">游戏介绍</a></p>
+<p>附<a target="_blank" rel="noopener" href="http://www.chafanhou.com/?q=music-catch-2">游戏介绍</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -113,7 +120,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/百度空间存档/">百度空间存档</a><a href="/tags/技巧/">技巧</a><a href="/tags/原创软件/">原创软件</a><a href="/tags/游戏/">游戏</a>
+  <span></span> <a href="/tags/原创软件/">原创软件</a><a href="/tags/百度空间存档/">百度空间存档</a><a href="/tags/技巧/">技巧</a><a href="/tags/游戏/">游戏</a>
   </div>
 
 </div>
@@ -122,7 +129,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://mercury233.me/2009/12/13/让Music-Catch-2-Flash版加载本地音乐的方法/" data-title="让Music Catch 2 Flash版加载本地音乐的方法 | Mercury233" data-tsina="" class="share clearfix">
+	  <div data-url="https://mercury233.me/2009/12/13/%E8%AE%A9Music-Catch-2-Flash%E7%89%88%E5%8A%A0%E8%BD%BD%E6%9C%AC%E5%9C%B0%E9%9F%B3%E4%B9%90%E7%9A%84%E6%96%B9%E6%B3%95/" data-title="让Music Catch 2 Flash版加载本地音乐的方法 | Mercury233" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -135,9 +142,9 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev">
+ <div class="prev" >
  <a href="/2012/11/20/一次恢复因蓝屏丢失的ACCESS-MDB数据库的经验/" title="一次恢复因蓝屏丢失的ACCESS .MDB数据库的经验">
-  <strong>上一篇：</strong><br>
+  <strong>上一篇：</strong><br/>
   <span>
   一次恢复因蓝屏丢失的ACCESS .MDB数据库的经验</span>
 </a>
@@ -145,8 +152,8 @@
 
 
 <div class="next">
-<a href="/2008/10/13/U盘杀毒防毒方法/" title="[原创]U盘杀毒防毒方法">
- <strong>下一篇：</strong><br> 
+<a href="/2008/10/13/U盘杀毒防毒方法/"  title="[原创]U盘杀毒防毒方法">
+ <strong>下一篇：</strong><br/> 
  <span>[原创]U盘杀毒防毒方法
 </span>
 </a>
@@ -217,23 +224,23 @@
       <ul class="archive-list">
         
           <li class="archive-list-item">
-            <a class="archive-list-link" href="/2021/02/24/解决EPSON-LQ-630K-ESC-P-2-Ver-2-0打印机无法从WIN7共享给XP的问题/">解决EPSON LQ-630K ESC/P 2 Ver 2.0打印机无法从WIN7共享给XP的问题</a>
+            <a class="archive-list-link" href="/2021/02/24/%E8%A7%A3%E5%86%B3EPSON-LQ-630K-ESC-P-2-Ver-2-0%E6%89%93%E5%8D%B0%E6%9C%BA%E6%97%A0%E6%B3%95%E4%BB%8EWIN7%E5%85%B1%E4%BA%AB%E7%BB%99XP%E7%9A%84%E9%97%AE%E9%A2%98/">解决EPSON LQ-630K ESC/P 2 Ver 2.0打印机无法从WIN7共享给XP的问题</a>
           </li>
         
           <li class="archive-list-item">
-            <a class="archive-list-link" href="/2018/06/16/解决Chrome66开始出现的Flash不能输入中文（没有输入法）的问题/">解决Chrome66开始出现的Flash不能输入中文（调不出输入法）的问题</a>
+            <a class="archive-list-link" href="/2018/06/16/%E8%A7%A3%E5%86%B3Chrome66%E5%BC%80%E5%A7%8B%E5%87%BA%E7%8E%B0%E7%9A%84Flash%E4%B8%8D%E8%83%BD%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%EF%BC%88%E6%B2%A1%E6%9C%89%E8%BE%93%E5%85%A5%E6%B3%95%EF%BC%89%E7%9A%84%E9%97%AE%E9%A2%98/">解决Chrome66开始出现的Flash不能输入中文（调不出输入法）的问题</a>
           </li>
         
           <li class="archive-list-item">
-            <a class="archive-list-link" href="/2016/09/22/笔记：在Windows下编译YGOPRO/">笔记：在Windows下编译YGOPro</a>
+            <a class="archive-list-link" href="/2016/09/22/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%9C%A8Windows%E4%B8%8B%E7%BC%96%E8%AF%91YGOPRO/">笔记：在Windows下编译YGOPro</a>
           </li>
         
           <li class="archive-list-item">
-            <a class="archive-list-link" href="/2016/03/13/网页中相对路径的一个坑/">网页中相对路径的一个坑</a>
+            <a class="archive-list-link" href="/2016/03/13/%E7%BD%91%E9%A1%B5%E4%B8%AD%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E7%9A%84%E4%B8%80%E4%B8%AA%E5%9D%91/">网页中相对路径的一个坑</a>
           </li>
         
           <li class="archive-list-item">
-            <a class="archive-list-link" href="/2015/10/14/卡池生成器/">卡池生成器</a>
+            <a class="archive-list-link" href="/2015/10/14/%E5%8D%A1%E6%B1%A0%E7%94%9F%E6%88%90%E5%99%A8/">卡池生成器</a>
           </li>
         
       </ul>
@@ -256,10 +263,10 @@
 </aside>
 </div>
     </div>
-    <footer><div id="footer">
+    <footer><div id="footer" >
 	
 	
-	<div class="social-font">
+	<div class="social-font" class="clearfix">
 		
 		
 		<a href="https://github.com/mercury233" target="_blank" class="icon-github" title="github"></a>
@@ -277,7 +284,7 @@
 		
 				<div class="cc-license">
           <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
-            <img src="/img/cc-by-nc-sa.svg" alt="Creative Commons">
+            <img src="/img/cc-by-nc-sa.svg" alt="Creative Commons" />
           </a>
         </div>
     
@@ -285,7 +292,7 @@
 		<p class="copyright">
 		Powered by <a href="https://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a>.
 		Hosted by <a href="https://www.netlify.com/" target="_blank" title="Netlify">Netlify</a> and <a href="https://github.com/" target="_blank" title="GitHub">GitHub</a>.
-		© 2021 
+		© 2022 
 		
 		<a href="/about" target="_blank" title="Mercury233">Mercury233</a>
 		

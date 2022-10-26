@@ -1,7 +1,7 @@
 
  <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="UTF-8">
   
     <title>解决Chrome66开始出现的Flash不能输入中文（调不出输入法）的问题 | Mercury233</title>
@@ -12,24 +12,26 @@
 
     
     <meta name="description" content="前段时间更新了Chrome66，结果Flash游戏中调不出输入法，无法打中文了。以“chrome flash 输入法”在Google搜寻居然没有找到有效的结果。换了个姿势终于找到了解决方案，故记录下来。">
-<meta name="keywords" content="经验">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解决Chrome66开始出现的Flash不能输入中文（调不出输入法）的问题">
-<meta property="og:url" content="https://mercury233.me/2018/06/16/解决Chrome66开始出现的Flash不能输入中文（没有输入法）的问题/index.html">
+<meta property="og:url" content="https://mercury233.me/2018/06/16/%E8%A7%A3%E5%86%B3Chrome66%E5%BC%80%E5%A7%8B%E5%87%BA%E7%8E%B0%E7%9A%84Flash%E4%B8%8D%E8%83%BD%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%EF%BC%88%E6%B2%A1%E6%9C%89%E8%BE%93%E5%85%A5%E6%B3%95%EF%BC%89%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Mercury233">
 <meta property="og:description" content="前段时间更新了Chrome66，结果Flash游戏中调不出输入法，无法打中文了。以“chrome flash 输入法”在Google搜寻居然没有找到有效的结果。换了个姿势终于找到了解决方案，故记录下来。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-16T15:22:10.042Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-06-16T15:10:30.000Z">
+<meta property="article:modified_time" content="2018-06-16T15:22:10.042Z">
+<meta property="article:author" content="Mercury233">
+<meta property="article:tag" content="经验">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="解决Chrome66开始出现的Flash不能输入中文（调不出输入法）的问题">
-<meta name="twitter:description" content="前段时间更新了Chrome66，结果Flash游戏中调不出输入法，无法打中文了。以“chrome flash 输入法”在Google搜寻居然没有找到有效的结果。换了个姿势终于找到了解决方案，故记录下来。">
 
     
     
     
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-</html>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
   <body>
     <header>
       
@@ -43,31 +45,30 @@
 			</a></div>
 			<nav class="animated">
 				<ul>
-					<ul>
-					 
-						<li><a href="/">Home</a></li>
 					
-						<li><a href="/archives">Archives</a></li>
+					<li><a href="/">Home</a></li>
 					
-						<li><a href="/categories/%E4%BD%9C%E5%93%81/">Works</a></li>
+					<li><a href="/archives">Archives</a></li>
 					
-						<li><a href="/about">About</a></li>
+					<li><a href="/categories/%E4%BD%9C%E5%93%81/">Works</a></li>
+					
+					<li><a href="/about">About</a></li>
 					
 					<li>
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索">
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:mercury233.me">
 					</form>
 					
 					</li>
 				</ul>
-			</ul></nav>			
+			</nav>			
 </div>
     </header>
     <div id="container">
-      <div id="main" class="post" itemscope="" itemprop="blogPost">
+      <div id="main" class="post" itemscope itemprop="blogPost">
   
 	<article itemprop="articleBody"> 
 		<header class="article-info clearfix">
@@ -86,9 +87,11 @@
 </header>
 	<div class="article-content">
 		
-		<p>前段时间更新了Chrome66，结果Flash游戏中调不出输入法，无法打中文了。以“chrome flash 输入法”在Google搜寻居然没有找到有效的结果。换了个姿势终于找到了解决方案，故记录下来。<br><a id="more"></a><br>一句话，打开 chrome://flags/#site-isolation-trial-opt-out ，把Default改成Opt-out，重启Chrome，问题解决。</p>
+		<p>前段时间更新了Chrome66，结果Flash游戏中调不出输入法，无法打中文了。以“chrome flash 输入法”在Google搜寻居然没有找到有效的结果。换了个姿势终于找到了解决方案，故记录下来。</p>
+<span id="more"></span>
+<p>一句话，打开 chrome:&#x2F;&#x2F;flags&#x2F;#site-isolation-trial-opt-out ，把Default改成Opt-out，重启Chrome，问题解决。</p>
 <p>原因是Chrome把部分用户当成了小白鼠，悄悄开启了Site Isolation功能，看起来这个功能和Flash和输入法有冲突。</p>
-<p>感谢<a href="https://productforums.google.com/forum/#!topic/chrome-ja/6VFyxVpdXTo;context-place=forum/chrome-ja" target="_blank" rel="noopener">Chrome日文论坛里とうりすがり君的回复</a>。</p>
+<p>感谢<a target="_blank" rel="noopener" href="https://productforums.google.com/forum/#!topic/chrome-ja/6VFyxVpdXTo;context-place=forum/chrome-ja">Chrome日文论坛里とうりすがり君的回复</a>。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -106,7 +109,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://mercury233.me/2018/06/16/解决Chrome66开始出现的Flash不能输入中文（没有输入法）的问题/" data-title="解决Chrome66开始出现的Flash不能输入中文（调不出输入法）的问题 | Mercury233" data-tsina="" class="share clearfix">
+	  <div data-url="https://mercury233.me/2018/06/16/%E8%A7%A3%E5%86%B3Chrome66%E5%BC%80%E5%A7%8B%E5%87%BA%E7%8E%B0%E7%9A%84Flash%E4%B8%8D%E8%83%BD%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%EF%BC%88%E6%B2%A1%E6%9C%89%E8%BE%93%E5%85%A5%E6%B3%95%EF%BC%89%E7%9A%84%E9%97%AE%E9%A2%98/" data-title="解决Chrome66开始出现的Flash不能输入中文（调不出输入法）的问题 | Mercury233" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -119,9 +122,9 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev">
+ <div class="prev" >
  <a href="/2021/02/24/解决EPSON-LQ-630K-ESC-P-2-Ver-2-0打印机无法从WIN7共享给XP的问题/" title="解决EPSON LQ-630K ESC/P 2 Ver 2.0打印机无法从WIN7共享给XP的问题">
-  <strong>上一篇：</strong><br>
+  <strong>上一篇：</strong><br/>
   <span>
   解决EPSON LQ-630K ESC/P 2 Ver 2.0打印机无法从WIN7共享给XP的问题</span>
 </a>
@@ -129,8 +132,8 @@
 
 
 <div class="next">
-<a href="/2016/09/22/笔记：在Windows下编译YGOPRO/" title="笔记：在Windows下编译YGOPro">
- <strong>下一篇：</strong><br> 
+<a href="/2016/09/22/笔记：在Windows下编译YGOPRO/"  title="笔记：在Windows下编译YGOPro">
+ <strong>下一篇：</strong><br/> 
  <span>笔记：在Windows下编译YGOPro
 </span>
 </a>
@@ -201,23 +204,23 @@
       <ul class="archive-list">
         
           <li class="archive-list-item">
-            <a class="archive-list-link" href="/2021/02/24/解决EPSON-LQ-630K-ESC-P-2-Ver-2-0打印机无法从WIN7共享给XP的问题/">解决EPSON LQ-630K ESC/P 2 Ver 2.0打印机无法从WIN7共享给XP的问题</a>
+            <a class="archive-list-link" href="/2021/02/24/%E8%A7%A3%E5%86%B3EPSON-LQ-630K-ESC-P-2-Ver-2-0%E6%89%93%E5%8D%B0%E6%9C%BA%E6%97%A0%E6%B3%95%E4%BB%8EWIN7%E5%85%B1%E4%BA%AB%E7%BB%99XP%E7%9A%84%E9%97%AE%E9%A2%98/">解决EPSON LQ-630K ESC/P 2 Ver 2.0打印机无法从WIN7共享给XP的问题</a>
           </li>
         
           <li class="archive-list-item">
-            <a class="archive-list-link" href="/2018/06/16/解决Chrome66开始出现的Flash不能输入中文（没有输入法）的问题/">解决Chrome66开始出现的Flash不能输入中文（调不出输入法）的问题</a>
+            <a class="archive-list-link" href="/2018/06/16/%E8%A7%A3%E5%86%B3Chrome66%E5%BC%80%E5%A7%8B%E5%87%BA%E7%8E%B0%E7%9A%84Flash%E4%B8%8D%E8%83%BD%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%EF%BC%88%E6%B2%A1%E6%9C%89%E8%BE%93%E5%85%A5%E6%B3%95%EF%BC%89%E7%9A%84%E9%97%AE%E9%A2%98/">解决Chrome66开始出现的Flash不能输入中文（调不出输入法）的问题</a>
           </li>
         
           <li class="archive-list-item">
-            <a class="archive-list-link" href="/2016/09/22/笔记：在Windows下编译YGOPRO/">笔记：在Windows下编译YGOPro</a>
+            <a class="archive-list-link" href="/2016/09/22/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%9C%A8Windows%E4%B8%8B%E7%BC%96%E8%AF%91YGOPRO/">笔记：在Windows下编译YGOPro</a>
           </li>
         
           <li class="archive-list-item">
-            <a class="archive-list-link" href="/2016/03/13/网页中相对路径的一个坑/">网页中相对路径的一个坑</a>
+            <a class="archive-list-link" href="/2016/03/13/%E7%BD%91%E9%A1%B5%E4%B8%AD%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E7%9A%84%E4%B8%80%E4%B8%AA%E5%9D%91/">网页中相对路径的一个坑</a>
           </li>
         
           <li class="archive-list-item">
-            <a class="archive-list-link" href="/2015/10/14/卡池生成器/">卡池生成器</a>
+            <a class="archive-list-link" href="/2015/10/14/%E5%8D%A1%E6%B1%A0%E7%94%9F%E6%88%90%E5%99%A8/">卡池生成器</a>
           </li>
         
       </ul>
@@ -240,10 +243,10 @@
 </aside>
 </div>
     </div>
-    <footer><div id="footer">
+    <footer><div id="footer" >
 	
 	
-	<div class="social-font">
+	<div class="social-font" class="clearfix">
 		
 		
 		<a href="https://github.com/mercury233" target="_blank" class="icon-github" title="github"></a>
@@ -261,7 +264,7 @@
 		
 				<div class="cc-license">
           <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
-            <img src="/img/cc-by-nc-sa.svg" alt="Creative Commons">
+            <img src="/img/cc-by-nc-sa.svg" alt="Creative Commons" />
           </a>
         </div>
     
@@ -269,7 +272,7 @@
 		<p class="copyright">
 		Powered by <a href="https://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a>.
 		Hosted by <a href="https://www.netlify.com/" target="_blank" title="Netlify">Netlify</a> and <a href="https://github.com/" target="_blank" title="GitHub">GitHub</a>.
-		© 2021 
+		© 2022 
 		
 		<a href="/about" target="_blank" title="Mercury233">Mercury233</a>
 		

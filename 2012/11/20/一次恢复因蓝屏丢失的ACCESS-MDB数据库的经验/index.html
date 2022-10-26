@@ -1,7 +1,7 @@
 
  <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="UTF-8">
   
     <title>一次恢复因蓝屏丢失的ACCESS .MDB数据库的经验 | Mercury233</title>
@@ -12,28 +12,31 @@
 
     
     <meta name="description" content="刚才在编辑一个ACCESS格式的资料库，编辑完了，保存，关闭ACCESS，结果这时候突然蓝屏了 重启电脑之后数据库文件还在，但打开提示“不可识别的数据库格式” 用记事本打开，发现文件居然变成了完全空白！">
-<meta name="keywords" content="百度空间存档,技巧">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一次恢复因蓝屏丢失的ACCESS .MDB数据库的经验">
-<meta property="og:url" content="https://mercury233.me/2012/11/20/一次恢复因蓝屏丢失的ACCESS-MDB数据库的经验/index.html">
+<meta property="og:url" content="https://mercury233.me/2012/11/20/%E4%B8%80%E6%AC%A1%E6%81%A2%E5%A4%8D%E5%9B%A0%E8%93%9D%E5%B1%8F%E4%B8%A2%E5%A4%B1%E7%9A%84ACCESS-MDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E7%BB%8F%E9%AA%8C/index.html">
 <meta property="og:site_name" content="Mercury233">
 <meta property="og:description" content="刚才在编辑一个ACCESS格式的资料库，编辑完了，保存，关闭ACCESS，结果这时候突然蓝屏了 重启电脑之后数据库文件还在，但打开提示“不可识别的数据库格式” 用记事本打开，发现文件居然变成了完全空白！">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://mercury233.me/2012/11/20/一次恢复因蓝屏丢失的ACCESS-MDB数据库的经验/1.jpg">
-<meta property="og:image" content="https://mercury233.me/2012/11/20/一次恢复因蓝屏丢失的ACCESS-MDB数据库的经验/2.jpg">
-<meta property="og:image" content="https://mercury233.me/2012/11/20/一次恢复因蓝屏丢失的ACCESS-MDB数据库的经验/3.jpg">
-<meta property="og:updated_time" content="2015-09-16T17:39:41.130Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mercury233.me/2012/11/20/%E4%B8%80%E6%AC%A1%E6%81%A2%E5%A4%8D%E5%9B%A0%E8%93%9D%E5%B1%8F%E4%B8%A2%E5%A4%B1%E7%9A%84ACCESS-MDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E7%BB%8F%E9%AA%8C/1.jpg">
+<meta property="og:image" content="https://mercury233.me/2012/11/20/%E4%B8%80%E6%AC%A1%E6%81%A2%E5%A4%8D%E5%9B%A0%E8%93%9D%E5%B1%8F%E4%B8%A2%E5%A4%B1%E7%9A%84ACCESS-MDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E7%BB%8F%E9%AA%8C/2.jpg">
+<meta property="og:image" content="https://mercury233.me/2012/11/20/%E4%B8%80%E6%AC%A1%E6%81%A2%E5%A4%8D%E5%9B%A0%E8%93%9D%E5%B1%8F%E4%B8%A2%E5%A4%B1%E7%9A%84ACCESS-MDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E7%BB%8F%E9%AA%8C/3.jpg">
+<meta property="article:published_time" content="2012-11-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2015-09-16T17:39:41.130Z">
+<meta property="article:author" content="Mercury233">
+<meta property="article:tag" content="百度空间存档">
+<meta property="article:tag" content="技巧">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一次恢复因蓝屏丢失的ACCESS .MDB数据库的经验">
-<meta name="twitter:description" content="刚才在编辑一个ACCESS格式的资料库，编辑完了，保存，关闭ACCESS，结果这时候突然蓝屏了 重启电脑之后数据库文件还在，但打开提示“不可识别的数据库格式” 用记事本打开，发现文件居然变成了完全空白！">
-<meta name="twitter:image" content="https://mercury233.me/2012/11/20/一次恢复因蓝屏丢失的ACCESS-MDB数据库的经验/1.jpg">
+<meta name="twitter:image" content="https://mercury233.me/2012/11/20/%E4%B8%80%E6%AC%A1%E6%81%A2%E5%A4%8D%E5%9B%A0%E8%93%9D%E5%B1%8F%E4%B8%A2%E5%A4%B1%E7%9A%84ACCESS-MDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E7%BB%8F%E9%AA%8C/1.jpg">
 
     
     
     
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-</html>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
   <body>
     <header>
       
@@ -47,31 +50,30 @@
 			</a></div>
 			<nav class="animated">
 				<ul>
-					<ul>
-					 
-						<li><a href="/">Home</a></li>
 					
-						<li><a href="/archives">Archives</a></li>
+					<li><a href="/">Home</a></li>
 					
-						<li><a href="/categories/%E4%BD%9C%E5%93%81/">Works</a></li>
+					<li><a href="/archives">Archives</a></li>
 					
-						<li><a href="/about">About</a></li>
+					<li><a href="/categories/%E4%BD%9C%E5%93%81/">Works</a></li>
+					
+					<li><a href="/about">About</a></li>
 					
 					<li>
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索">
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:mercury233.me">
 					</form>
 					
 					</li>
 				</ul>
-			</ul></nav>			
+			</nav>			
 </div>
     </header>
     <div id="container">
-      <div id="main" class="post" itemscope="" itemprop="blogPost">
+      <div id="main" class="post" itemscope itemprop="blogPost">
   
 	<article itemprop="articleBody"> 
 		<header class="article-info clearfix">
@@ -92,14 +94,16 @@
 		
 		<p>刚才在编辑一个ACCESS格式的资料库，编辑完了，保存，关闭ACCESS，结果这时候突然蓝屏了</p>
 <p>重启电脑之后数据库文件还在，但打开提示“不可识别的数据库格式”</p>
-<p>用记事本打开，发现文件居然变成了完全空白！<br><a id="more"></a><br><img src="1.jpg" alt="Access数据库损坏"></p>
+<p>用记事本打开，发现文件居然变成了完全空白！</p>
+<span id="more"></span>
+<p><img src="/2012/11/20/%E4%B8%80%E6%AC%A1%E6%81%A2%E5%A4%8D%E5%9B%A0%E8%93%9D%E5%B1%8F%E4%B8%A2%E5%A4%B1%E7%9A%84ACCESS-MDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E7%BB%8F%E9%AA%8C/1.jpg" alt="Access数据库损坏"></p>
 <p>大喊一声卧槽之后，想到ACCESS在关闭数据库的时候会自动压缩数据库，可能会将原来的数据库文件复制一个临时的副本</p>
 <p>于是打开临时文件夹，没有收获，调用EVERYTHING以文件名和MDB为关键词，都没有找到</p>
 <p>无奈使用数据库恢复软件，下了个Recuva，因为已知临时文件是不存在了，就按文件内容搜索</p>
-<p><img src="2.jpg" alt="Recuva搜索Access数据库"></p>
+<p><img src="/2012/11/20/%E4%B8%80%E6%AC%A1%E6%81%A2%E5%A4%8D%E5%9B%A0%E8%93%9D%E5%B1%8F%E4%B8%A2%E5%A4%B1%E7%9A%84ACCESS-MDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E7%BB%8F%E9%AA%8C/2.jpg" alt="Recuva搜索Access数据库"></p>
 <p>能用的MDB数据库里肯定有Jet这个关键词恩</p>
 <p>结果还真找到了</p>
-<p><img src="3.jpg" alt="Recuva搜索到的Access数据库"></p>
+<p><img src="/2012/11/20/%E4%B8%80%E6%AC%A1%E6%81%A2%E5%A4%8D%E5%9B%A0%E8%93%9D%E5%B1%8F%E4%B8%A2%E5%A4%B1%E7%9A%84ACCESS-MDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E7%BB%8F%E9%AA%8C/3.jpg" alt="Recuva搜索到的Access数据库"></p>
 <p>根据文件大小可以发现，不是那个空白文件，大概是未压缩过的原文件</p>
 <p>复制出来，可以正常打开，发现内容毫无损失</p>
 <p>关闭ACCESS，自动压缩数据库，发现压缩之后的数据库和空白文件的大小一个字节都不差</p>
@@ -123,7 +127,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://mercury233.me/2012/11/20/一次恢复因蓝屏丢失的ACCESS-MDB数据库的经验/" data-title="一次恢复因蓝屏丢失的ACCESS .MDB数据库的经验 | Mercury233" data-tsina="" class="share clearfix">
+	  <div data-url="https://mercury233.me/2012/11/20/%E4%B8%80%E6%AC%A1%E6%81%A2%E5%A4%8D%E5%9B%A0%E8%93%9D%E5%B1%8F%E4%B8%A2%E5%A4%B1%E7%9A%84ACCESS-MDB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E7%BB%8F%E9%AA%8C/" data-title="一次恢复因蓝屏丢失的ACCESS .MDB数据库的经验 | Mercury233" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -136,9 +140,9 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev">
+ <div class="prev" >
  <a href="/2013/03/10/iDuel-YGOPRO卡组转换器-1-5/" title="iDuel YGOPro卡组转换器 1.5">
-  <strong>上一篇：</strong><br>
+  <strong>上一篇：</strong><br/>
   <span>
   iDuel YGOPro卡组转换器 1.5</span>
 </a>
@@ -146,8 +150,8 @@
 
 
 <div class="next">
-<a href="/2009/12/13/让Music-Catch-2-Flash版加载本地音乐的方法/" title="让Music Catch 2 Flash版加载本地音乐的方法">
- <strong>下一篇：</strong><br> 
+<a href="/2009/12/13/让Music-Catch-2-Flash版加载本地音乐的方法/"  title="让Music Catch 2 Flash版加载本地音乐的方法">
+ <strong>下一篇：</strong><br/> 
  <span>让Music Catch 2 Flash版加载本地音乐的方法
 </span>
 </a>
@@ -218,23 +222,23 @@
       <ul class="archive-list">
         
           <li class="archive-list-item">
-            <a class="archive-list-link" href="/2021/02/24/解决EPSON-LQ-630K-ESC-P-2-Ver-2-0打印机无法从WIN7共享给XP的问题/">解决EPSON LQ-630K ESC/P 2 Ver 2.0打印机无法从WIN7共享给XP的问题</a>
+            <a class="archive-list-link" href="/2021/02/24/%E8%A7%A3%E5%86%B3EPSON-LQ-630K-ESC-P-2-Ver-2-0%E6%89%93%E5%8D%B0%E6%9C%BA%E6%97%A0%E6%B3%95%E4%BB%8EWIN7%E5%85%B1%E4%BA%AB%E7%BB%99XP%E7%9A%84%E9%97%AE%E9%A2%98/">解决EPSON LQ-630K ESC/P 2 Ver 2.0打印机无法从WIN7共享给XP的问题</a>
           </li>
         
           <li class="archive-list-item">
-            <a class="archive-list-link" href="/2018/06/16/解决Chrome66开始出现的Flash不能输入中文（没有输入法）的问题/">解决Chrome66开始出现的Flash不能输入中文（调不出输入法）的问题</a>
+            <a class="archive-list-link" href="/2018/06/16/%E8%A7%A3%E5%86%B3Chrome66%E5%BC%80%E5%A7%8B%E5%87%BA%E7%8E%B0%E7%9A%84Flash%E4%B8%8D%E8%83%BD%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%EF%BC%88%E6%B2%A1%E6%9C%89%E8%BE%93%E5%85%A5%E6%B3%95%EF%BC%89%E7%9A%84%E9%97%AE%E9%A2%98/">解决Chrome66开始出现的Flash不能输入中文（调不出输入法）的问题</a>
           </li>
         
           <li class="archive-list-item">
-            <a class="archive-list-link" href="/2016/09/22/笔记：在Windows下编译YGOPRO/">笔记：在Windows下编译YGOPro</a>
+            <a class="archive-list-link" href="/2016/09/22/%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%9C%A8Windows%E4%B8%8B%E7%BC%96%E8%AF%91YGOPRO/">笔记：在Windows下编译YGOPro</a>
           </li>
         
           <li class="archive-list-item">
-            <a class="archive-list-link" href="/2016/03/13/网页中相对路径的一个坑/">网页中相对路径的一个坑</a>
+            <a class="archive-list-link" href="/2016/03/13/%E7%BD%91%E9%A1%B5%E4%B8%AD%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E7%9A%84%E4%B8%80%E4%B8%AA%E5%9D%91/">网页中相对路径的一个坑</a>
           </li>
         
           <li class="archive-list-item">
-            <a class="archive-list-link" href="/2015/10/14/卡池生成器/">卡池生成器</a>
+            <a class="archive-list-link" href="/2015/10/14/%E5%8D%A1%E6%B1%A0%E7%94%9F%E6%88%90%E5%99%A8/">卡池生成器</a>
           </li>
         
       </ul>
@@ -257,10 +261,10 @@
 </aside>
 </div>
     </div>
-    <footer><div id="footer">
+    <footer><div id="footer" >
 	
 	
-	<div class="social-font">
+	<div class="social-font" class="clearfix">
 		
 		
 		<a href="https://github.com/mercury233" target="_blank" class="icon-github" title="github"></a>
@@ -278,7 +282,7 @@
 		
 				<div class="cc-license">
           <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
-            <img src="/img/cc-by-nc-sa.svg" alt="Creative Commons">
+            <img src="/img/cc-by-nc-sa.svg" alt="Creative Commons" />
           </a>
         </div>
     
@@ -286,7 +290,7 @@
 		<p class="copyright">
 		Powered by <a href="https://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a>.
 		Hosted by <a href="https://www.netlify.com/" target="_blank" title="Netlify">Netlify</a> and <a href="https://github.com/" target="_blank" title="GitHub">GitHub</a>.
-		© 2021 
+		© 2022 
 		
 		<a href="/about" target="_blank" title="Mercury233">Mercury233</a>
 		
