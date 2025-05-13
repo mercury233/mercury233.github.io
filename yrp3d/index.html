@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YRP3D文件提取YRP工具</title>
+    <!-- 添加JSZip库 -->
+    <script src="https://lib.baomitu.com/jszip/3.10.1/jszip.min.js"></script>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .file-input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .file-input-label {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .file-input-label:hover {
+            background-color: #45a049;
+        }
+        #file-input {
+            display: none;
+        }
+        .file-name {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        .progress-bar-container {
+            width: 100%;
+            background-color: #ddd;
+            border-radius: 4px;
+            margin-top: 20px;
+            display: none;
+        }
+        .progress-bar {
+            height: 20px;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            width: 0%;
+            transition: width 0.3s;
+        }
+        .result-container {
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        .result-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .download-button {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        .download-button:hover {
+            background-color: #0b7dda;
+        }
+        .batch-download-button {
+            background-color: #FF9800;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 15px;
+            transition: background-color 0.3s;
+        }
+        .batch-download-button:hover {
+            background-color: #F57C00;
+        }
+        .log-container {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            max-height: 200px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        .log-item {
+            margin: 5px 0;
+        }
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+        .container.drag-over {
+            border: 2px dashed #4CAF50;
+            background-color: rgba(76, 175, 80, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>YRP3D文件提取YRP工具</h1>
+        <div class="file-input-container">
+            <p>请选择YRP3D文件</p>
+            <label for="file-input" class="file-input-label">选择文件</label>
+            <input type="file" id="file-input" accept=".yrp3d" multiple>
+            <div class="file-name" id="file-name"></div>
+        </div>
+        <div class="progress-bar-container" id="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div class="log-container" id="log-container">
+            <div class="log-item">请选择文件，或将文件拖动至此处。</div>
+        </div>
+        <div class="result-container" id="result-container">
+            <!-- 结果将在这里显示 -->
+        </div>
+    </div>
+    <div class="footer">
+        <p>So lazy cant move</p>
+    </div>
+
+    <script>
+        // BinaryReader 类，模拟C#中的BinaryReader
+        class BinaryReader {
+            constructor(buffer) {
+                this.buffer = buffer;
+                this.position = 0;
+                this.view = new DataView(buffer);
+            }
+
+            readByte() {
+                if (this.position >= this.buffer.byteLength) {
+                    throw new Error('读取超出缓冲区边界');
+                }
+                return this.view.getUint8(this.position++);
+            }
+
+            readUInt32() {
+                if (this.position + 4 > this.buffer.byteLength) {
+                    throw new Error('读取超出缓冲区边界');
+                }
+                const value = this.view.getUint32(this.position, true); // 使用小端序
+                this.position += 4;
+                return value;
+            }
+
+            readBytes(count) {
+                if (this.position + count > this.buffer.byteLength) {
+                    throw new Error('读取超出缓冲区边界');
+                }
+                const bytes = new Uint8Array(this.buffer.slice(this.position, this.position + count));
+                this.position += count;
+                return bytes;
+            }
+
+            readToEnd() {
+                const bytes = new Uint8Array(this.buffer.slice(this.position));
+                this.position = this.buffer.byteLength;
+                return bytes;
+            }
+
+            get length() {
+                return this.buffer.byteLength;
+            }
+        }
+
+        // 日志功能
+        function log(message) {
+            const logContainer = document.getElementById('log-container');
+            const logItem = document.createElement('div');
+            logItem.className = 'log-item';
+            logItem.textContent = message;
+            logContainer.appendChild(logItem);
+            logContainer.scrollTop = logContainer.scrollHeight;
+        }
+
+        // 更新进度条
+        function updateProgress(percent) {
+            const progressContainer = document.getElementById('progress-container');
+            const progressBar = document.getElementById('progress-bar');
+            
+            progressContainer.style.display = 'block';
+            progressBar.style.width = percent + '%';
+        }
+
+        // 解析包
+        function getPackages(buffer) {
+            const packages = [];
+            const reader = new BinaryReader(buffer);
+
+            log(`开始解析文件，大小: ${buffer.byteLength} 字节`);
+            
+            try {
+                while (reader.position < reader.length) {
+                    const functionId = reader.readByte();
+                    const dataSize = reader.readUInt32();
+                    const data = reader.readBytes(dataSize);
+                    
+                    packages.push({
+                        function: functionId,
+                        data: data.buffer
+                    });
+                }
+                
+                log(`解析完成，共解析 ${packages.length} 个包`);
+                return packages;
+            } catch (error) {
+                log(`解析错误: ${error.message}`);
+                throw error;
+            }
+        }
+
+        // 获取YRP缓冲区
+        function getYRPBuffer(buffer, filename) {
+            const returnValue = [];
+
+            // 解析包
+            const packages = getPackages(buffer);
+            
+            // 提取YRP数据
+            let replayCount = 0;
+            for (const item of packages) {
+                if (item.function === 231) { // sibyl_replay
+                    replayCount++;
+                    log(`找到第 ${replayCount} 个回放数据`);
+                    const dataReader = new BinaryReader(item.data);
+                    const replay = dataReader.readToEnd();
+                    returnValue.push(replay.buffer);
+                }
+            }
+            
+            if (returnValue.length === 0) {
+                log('未找到任何回放数据');
+            }
+            
+            return returnValue;
+        }
+
+        // 保存文件
+        function saveFile(buffer, filename) {
+            const blob = new Blob([buffer], { type: 'application/octet-stream' });
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.style.display = 'none';
+            document.body.appendChild(a);
+            a.click();
+            
+            setTimeout(() => {
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }, 100);
+        }
+
+        // 处理文件选择
+        document.getElementById('file-input').addEventListener('change', function(event) {
+            const files = event.target.files;
+            if (!files || files.length === 0) return;
+            
+            // 更新文件名显示
+            let fileNames = '';
+            for (let i = 0; i < files.length; i++) {
+                fileNames += (i > 0 ? ', ' : '') + files[i].name;
+            }
+            
+            document.getElementById('file-name').textContent = files.length > 1 
+                ? `已选择 ${files.length} 个文件` 
+                : fileNames;
+            
+            // 显示进度条
+            updateProgress(0);
+            
+            const resultContainer = document.getElementById('result-container');
+            resultContainer.innerHTML = '';
+            
+            log(`选择了 ${files.length} 个文件`);
+            
+            // 存储所有提取的回放
+            const allReplays = [];
+            let processedFiles = 0;
+            
+            // 处理每个文件
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const filename = file.name;
+                
+                log(`开始处理文件: ${filename}`);
+                
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    try {
+                        const buffer = e.target.result;
+                        const baseFilename = filename.substring(0, filename.lastIndexOf('.'));
+                        
+                        log(`${filename} 加载完成，开始提取...`);
+                        
+                        const replays = getYRPBuffer(buffer, filename);
+                        
+                        // 储存提取结果
+                        replays.forEach((replay, index) => {
+                            allReplays.push({
+                                data: replay,
+                                filename: `${baseFilename}-Game${index + 1}.yrp`,
+                                originalFile: filename
+                            });
+                        });
+                        
+                        log(`${filename} 处理完成，提取了 ${replays.length} 个回放文件`);
+                    } catch (error) {
+                        log(`处理 ${filename} 失败: ${error.message}`);
+                        console.error(error);
+                    }
+                    
+                    // 更新进度
+                    processedFiles++;
+                    updateProgress(Math.round((processedFiles / files.length) * 100));
+                    
+                    // 所有文件处理完毕后显示结果
+                    if (processedFiles === files.length) {
+                        showResults(allReplays);
+                        log(`全部处理完成，共提取 ${allReplays.length} 个回放文件`);
+                    }
+                };
+                
+                reader.onerror = function() {
+                    log(`文件 ${filename} 读取错误`);
+                    processedFiles++;
+                    updateProgress(Math.round((processedFiles / files.length) * 100));
+                };
+                
+                // 开始读取文件
+                reader.readAsArrayBuffer(file);
+            }
+        });
+
+        // 显示结果
+        function showResults(replays) {
+            const resultContainer = document.getElementById('result-container');
+            resultContainer.innerHTML = '';
+            
+            if (replays.length === 0) {
+                const noResult = document.createElement('p');
+                noResult.textContent = '没有找到任何回放文件。';
+                resultContainer.appendChild(noResult);
+                return;
+            }
+            
+            const heading = document.createElement('h3');
+            heading.textContent = '提取结果:';
+            resultContainer.appendChild(heading);
+            
+            // 添加批量下载按钮
+            if (replays.length > 1) {
+                const batchDownloadButton = document.createElement('button');
+                batchDownloadButton.className = 'batch-download-button';
+                batchDownloadButton.textContent = `打包下载全部 ${replays.length} 个文件`;
+                batchDownloadButton.onclick = () => downloadAllFiles(replays);
+                resultContainer.appendChild(batchDownloadButton);
+            }
+            
+            // 添加单个文件下载选项
+            replays.forEach((replay, index) => {
+                const resultItem = document.createElement('div');
+                resultItem.className = 'result-item';
+                
+                const nameSpan = document.createElement('span');
+                nameSpan.textContent = `${replay.filename}`;
+                
+                const downloadButton = document.createElement('button');
+                downloadButton.className = 'download-button';
+                downloadButton.textContent = '下载';
+                downloadButton.onclick = () => saveFile(replay.data, replay.filename);
+                
+                resultItem.appendChild(nameSpan);
+                resultItem.appendChild(downloadButton);
+                resultContainer.appendChild(resultItem);
+            });
+        }
+
+        // 下载单个文件
+        function saveFile(buffer, filename) {
+            const blob = new Blob([buffer], { type: 'application/octet-stream' });
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.style.display = 'none';
+            document.body.appendChild(a);
+            a.click();
+            
+            setTimeout(() => {
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }, 100);
+        }
+
+        // 打包下载所有文件
+        function downloadAllFiles(replays) {
+            // 检查JSZip是否已加载
+            if (typeof JSZip === 'undefined') {
+                // 如果JSZip未加载，动态加载它
+                log('正在加载打包工具...');
+                const script = document.createElement('script');
+                script.src = 'https://lib.baomitu.com/jszip/3.10.1/jszip.min.js';
+                script.onload = function() {
+                    log('打包工具加载完成，开始打包...');
+                    createAndDownloadZip(replays);
+                };
+                script.onerror = function() {
+                    log('打包工具加载失败，请检查网络连接');
+                };
+                document.body.appendChild(script);
+            } else {
+                createAndDownloadZip(replays);
+            }
+        }
+
+        // 创建并下载ZIP文件
+        function createAndDownloadZip(replays) {
+            log('开始打包文件...');
+            const zip = new JSZip();
+            
+            // 添加所有文件到zip
+            replays.forEach(replay => {
+                zip.file(replay.filename, replay.data);
+            });
+            
+            // 生成ZIP文件
+            zip.generateAsync({type: 'blob'})
+                .then(function(content) {
+                    // 下载ZIP
+                    const url = URL.createObjectURL(content);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'YRP回放文件.zip';
+                    a.style.display = 'none';
+                    document.body.appendChild(a);
+                    a.click();
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+                    }, 100);
+                    
+                    log('打包完成，开始下载');
+                })
+                .catch(function(error) {
+                    log(`打包失败: ${error.message}`);
+                    console.error(error);
+                });
+        }
+
+        // 处理文件拖放功能
+        function setupDragAndDrop() {
+            const container = document.querySelector('.container');
+            
+            // 处理拖动进入和悬停事件
+            container.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                container.classList.add('drag-over');
+            });
+
+            // 处理拖动离开事件
+            container.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                container.classList.remove('drag-over');
+            });
+
+            // 处理拖动释放事件
+            container.addEventListener('drop', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                container.classList.remove('drag-over');
+                
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    const fileInput = document.getElementById('file-input');
+                    
+                    // 过滤只保留YRP3D文件
+                    const validFiles = [];
+                    for (let i = 0; i < files.length; i++) {
+                        if (files[i].name.toLowerCase().endsWith('.yrp3d')) {
+                            validFiles.push(files[i]);
+                        }
+                    }
+                    
+                    if (validFiles.length === 0) {
+                        log('请选择正确的YRP3D文件');
+                        return;
+                    }
+                    
+                    try {
+                        // 触发文件选择事件
+                        const dataTransfer = new DataTransfer();
+                        for (const file of validFiles) {
+                            dataTransfer.items.add(file);
+                        }
+                        fileInput.files = dataTransfer.files;
+                        
+                        // 手动触发change事件
+                        const event = new Event('change');
+                        fileInput.dispatchEvent(event);
+                    } catch (error) {
+                        // 某些浏览器可能不支持DataTransfer API
+                        log('您的浏览器不支持拖放功能，请使用选择文件按钮');
+                        console.error(error);
+                    }
+                }
+            });
+        }
+
+        // 页面加载完成后设置拖放功能
+        document.addEventListener('DOMContentLoaded', setupDragAndDrop);
+    </script>
+</body>
+</html>
