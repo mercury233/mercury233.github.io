@@ -1,9 +1,5 @@
 /*========== 通用部分 ==========*/
 
-/*干掉站长统计的文本*/
-a[title="站长统计"] {
-	display: none;
-}
 /*字体*/
 .index, .nav, h1, h2 , h3, h4, h5, h6 {
     font-family: 'Helvetica Neue', Helvetica, 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
