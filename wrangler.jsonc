@@ -2,15 +2,18 @@
 	"name": "mercury233-github-io",
 	"main": "worker.js",
 	"compatibility_date": "2025-06-25",
-	"assets": {
-		"directory": ".",
+	"site": {
+		"bucket": ".",
 		"exclude": [
 			"_redirects",
 			"wrangler.jsonc",
 			"worker.js",
 			"node_modules",
 			".git"
-		],
+		]
+	},
+	"assets": {
+		"directory": ".",
 		"run_worker_first": [
 			"/ygosrv233/*"
 		]
