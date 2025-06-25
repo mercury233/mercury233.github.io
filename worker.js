@@ -14,6 +14,16 @@ const redirectRules = [
 
 	// ygosrv233 相关重定向到 ygo233.com
 	{
+		source: 'https://mercury233.me/ygosrv233',
+		destination: 'https://ygo233.com/',
+		statusCode: 301
+	},
+	{
+		source: 'https://mercury233.me/ygosrv233.html',
+		destination: 'https://ygo233.com/',
+		statusCode: 301
+	},
+	{
 		source: 'https://mercury233.me/ygosrv233/',
 		destination: 'https://ygo233.com/',
 		statusCode: 301
@@ -113,7 +123,7 @@ async function handleRequest(request, env, ctx) {
 	}
 
 	// 处理 /ygosrv233/ 路径下的请求，需要特殊处理
-	if (url.includes('/ygosrv233/')) {
+	if (url.includes('/ygosrv233')) {
 		// 根据 wrangler.jsonc 配置，会首先执行 worker
 		// 如果没有匹配重定向规则，则继续处理静态资源请求
 		try {
