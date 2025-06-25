@@ -1,0 +1,5 @@
+_redirects
+wrangler.jsonc
+worker.js
+node_modules
+.git
