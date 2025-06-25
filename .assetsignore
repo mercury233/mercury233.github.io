@@ -1,4 +1,5 @@
-_redirects
+.netlify_redirects
+.github
 wrangler.jsonc
 worker.js
 node_modules
