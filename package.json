@@ -1,0 +1,16 @@
+{
+  "name": "mercury233-site",
+  "version": "1.0.0",
+  "description": "Mercury233个人网站",
+  "main": "worker.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "publish": "wrangler publish",
+    "deploy": "wrangler deploy"
+  },
+  "author": "Mercury233",
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}

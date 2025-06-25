@@ -1,0 +1,23 @@
+# Node.js 依赖和日志
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Wrangler 构建文件
+.wrangler/
+dist/
+worker/
+
+# IDE 文件
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 环境变量
+.env
+.dev.vars

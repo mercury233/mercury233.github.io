@@ -1,0 +1,27 @@
+{
+  // 网站名称和配置
+  "name": "mercury233-site",
+  "main": "worker.js",
+  "compatibility_date": "2025-06-25",
+  
+  // 站点资源配置
+  "site": {
+    "bucket": ".",
+    // 排除不需要上传的文件
+    "exclude": ["_redirects", "wrangler.jsonc", "worker.js", "node_modules", ".git"]
+  },
+  
+  // 环境配置
+  "env": {
+    "production": {
+      "routes": [
+        { "pattern": "mercury233.me/*", "customDomain": true }
+      ]
+    }
+  },
+  
+  // 开发环境设置
+  "dev": {
+    "port": 8787
+  }
+}
