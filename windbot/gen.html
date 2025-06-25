@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>WindBot deck codes from YGOPro deck file</title>
+	<style>
+		body,
+		html {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+		}
+
+		.container {
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.top {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 10px;
+			box-sizing: border-box;
+			background-color: #f0f0f0;
+		}
+
+		.top button {
+			padding: 10px;
+			flex: 0 0 auto;
+			width: 120px;
+			margin-left: 10px;
+		}
+
+		.top div {
+			flex: 1;
+			display: flex;
+			justify-content: space-between;
+			margin-left: 10px;
+		}
+
+		.top input {
+			flex: 1;
+			width: auto;
+			margin-left: 10px;
+		}
+
+		.top .checkboxContainer {
+			flex: 0 0 auto;
+			width: auto;
+			margin-left: 0;
+		}
+
+		.bottom {
+			display: flex;
+			height: 100%;
+		}
+
+		.left,
+		.right {
+			box-sizing: border-box;
+			padding: 10px;
+			position: relative;
+		}
+
+		.left {
+			flex: 0 0 30%;
+		}
+
+		.right {
+			flex: 1;
+		}
+
+		.input {
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
+		}
+
+		.loading .input {
+			background-color: #f0f0f0;
+			color: #999;
+			cursor: wait;
+		}
+
+		#progressBarContainer {
+			width: 100%;
+			display: block;
+			margin-left: 0;
+			margin-right: 20px;
+		}
+
+		#progressBar {
+			height: 20px;
+			width: 0%;
+			background-color: #4caf50;
+			background-size: 200% 100%;
+			border-radius: 5px;
+		}
+
+		.loading #progressBar {
+			background-image: linear-gradient(-45deg, #4caf50, #cbddb7, #4caf50);
+			animation: progressBarAnimation 2s linear infinite;
+		}
+
+		@keyframes progressBarAnimation {
+			0% {
+				background-position: 100% 0;
+			}
+
+			100% {
+				background-position: -100% 0;
+			}
+		}
+
+		.floatButton {
+			position: absolute;
+			top: 15px;
+			right: 15px;
+			padding: 5px 10px;
+			background-color: #4caf5099;
+			color: white;
+			border: none;
+			border-radius: 3px;
+			cursor: pointer;
+		}
+
+		.floatButton:hover {
+			background-color: #4caf50;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="top">
+			<div>
+				<label for="deckName">Name: </label>
+				<input type="text" id="deckName" class="input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Abcd">
+			</div>
+			<div>
+				<label for="deckFile">Deck File: </label>
+				<input type="text" id="deckFile" class="input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="AI_Abcd">
+			</div>
+			<button id="generate">Generate</button>
+			<div class="checkboxContainer">
+				<input type="checkbox" id="chineseHint" checked>
+				<label for="chineseHint" title="Add Chinese card names as comment.">中文注释</label>
+			</div>
+			<div class="checkboxContainer">
+				<input type="checkbox" id="underscore">
+				<label for="underscore" title="Replace spaces with underscores.">Underscore</label>
+			</div>
+			<div id="progressBarContainer">
+				<div id="progressBar"></div>
+			</div>
+		</div>
+		<div class="bottom">
+			<div class="left">
+				<button id="helpButton" class="floatButton">?</button>
+				<textarea class="input" id="deckText" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="# paste your deck file here
+#main
+18144506
+89631139
+46986414"></textarea>
+			</div>
+			<div class="right">
+				<button id="copyButton" class="floatButton">Copy</button>
+				<textarea class="input" id="output" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="using System;
+using WindBot;
+
+// here will be the generated code
+"></textarea>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		document.getElementById('generate').addEventListener('click', async function () {
+			let deckName = document.getElementById('deckName').value || 'Abcd';
+			let deckFile = document.getElementById('deckFile').value || 'AI_Abcd';
+			let deckText = document.getElementById('deckText').value || '18144506\n89631139\n46986414';
+			let underscore = document.getElementById('underscore').checked;
+			let progressBar = document.getElementById('progressBar');
+			progressBar.style.width = '0%';
+			document.body.className = 'loading';
+
+			let cards = deckText.split('\n').filter(x => x && !isNaN(x));
+			let resultCards = [];
+			for (let i = 0; i < cards.length; i++) {
+				let cardid = cards[i];
+				progressBar.style.width = `${i / cards.length * 100}%`;
+				let already = resultCards.find(x => x.id == cardid);
+				if (already) {
+					continue;
+				}
+				let response = await fetch(`https://ygocdb.com/api/v0/?search=${cardid}`);
+				let data = await response.json();
+				if (!data.result || data.result.length == 0) {
+					console.log('No card found for ' + cardid, data);
+					continue;
+				}
+				let card = data.result[0];
+				if (card) {
+					let name = card.en_name || card.wiki_en || 'Unknown' + cardid;
+					let varName;
+					if (underscore) {
+						varName = name.replace(/ /g, '_');
+					} else {
+						varName = name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('');
+					}
+					varName = varName.replace(/[,\-\"\'\/\:\!\&]/g, '').replace(/__+/g, '_').replace(/^_|_$/g, '');
+					resultCards.push({ id: cardid, data: card, varName: varName });
+					updateOutput(deckName, deckFile, resultCards);
+				}
+			}
+			progressBar.style.width = '100%';
+			document.body.className = '';
+		});
+
+		function updateOutput(deckName, deckFile, resultCards) {
+			let chineseHint = document.getElementById('chineseHint').checked;
+			let cardIdCodes = resultCards.map(x => {
+				let c = `            public const int ${x.varName} = ${x.id};`
+				if (chineseHint && x.data.cn_name) {
+					c += ` // ${x.data.cn_name}`;
+				}
+				return c;
+			}).join('\n');
+			let sampleCardName = resultCards[0].varName;
+			let output = document.getElementById('output');
+			output.value =
+				`using System;
+using System.Collections.Generic;
+using System.Linq;
+using YGOSharp.OCGWrapper.Enums;
+using WindBot;
+using WindBot.Game;
+using WindBot.Game.AI;
+
+namespace WindBot.Game.AI.Decks
+{
+    [Deck("${deckName}", "${deckFile}")]
+    class ${deckName}Executor : DefaultExecutor
+    {
+        public class CardId
+        {
+${cardIdCodes}
+        }
+
+        public ${deckName}Executor(GameAI ai, Duel duel)
+            : base(ai, duel)
+        {
+            AddExecutor(ExecutorType.Activate, CardId.${sampleCardName}, ${sampleCardName}Activate);
+            // Add other executors here
+        }
+
+        private bool mybool = false; // this is a sample variable
+
+        public override bool OnSelectHand()
+        {
+            // go first
+            return true;
+        }
+
+        public override void OnNewTurn()
+        {
+            mybool = false;
+            base.OnNewTurn();
+        }
+
+        private bool ${sampleCardName}Activate()
+        {
+            // your code here
+            mybool = true;
+            return true;
+        }
+
+        // Add other functions here
+    }
+}
+`;
+		}
+
+		document.getElementById('copyButton').addEventListener('click', function () {
+			const output = document.getElementById('output');
+			output.select();
+			document.execCommand('copy');
+
+			const originalText = this.textContent;
+			this.textContent = 'Copied!';
+			setTimeout(() => {
+				this.textContent = originalText;
+			}, 1500);
+		});
+
+		document.getElementById('helpButton').addEventListener('click', function () {
+			alert(`This tool generates a WindBot deck code from a YGOPro deck file.
+You can open your YGOPro deck file (.YDK) in a text editor, copy the contents, and paste them into the left textarea.`);
+		});
+	</script>
+</body>
+
+</html>
