@@ -2357,3 +2357,6 @@ pre .javascript .function {
 .tk-comments-container {
   min-height: 15rem !important;
 }
+.twikoo .tk-nick {
+  font-weight: bold;
+}
